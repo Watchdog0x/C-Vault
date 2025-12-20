@@ -12,66 +12,90 @@ A comprehensive, professional-grade documentation library covering the ISO C Sta
 ### 📂 [std/](std/) - C Standard Library (ISO C)
 *The core language foundations from C89 to C11.*
 
-| Module | Description |
-|:---|:---|
-| [io.md](std/io.md) | Standard Input/Output, Formatted I/O, File access. |
-| [lib.md](std/lib.md) | Memory management (`malloc`), Process control, Conversions. |
-| [string.md](std/string.md) | String manipulation and memory block operations. |
-| [math.md](std/math.md) / [complex.md](std/complex.md) | Floating-point and complex number arithmetic. |
-| [threads.md](std/threads.md) / [atomic.md](std/atomic.md) | Standard multithreading (C11) and atomic operations. |
-| [time.md](std/time.md) | System time, Intervals, and Calendar conversion. |
-| [wchar.md](std/wchar.md) | Wide character and multibyte string handling. |
-| [signal.md](std/signal.md) | Signal handling and standard signal types. |
-| [errno.md](std/errno.md) | Error reporting macros and constants. |
+| Module | Header | Description |
+|:---|:---|:---|
+| [io](std/io.md) | stdio.h | Standard Input/Output, Formatted I/O, File access. |
+| [lib](std/lib.md) | stdlib.h | Memory management (`malloc`), Process control, Conversions. |
+| [string](std/string.md) | string.h | String manipulation and memory block operations. |
+| [math](std/math.md) | math.h | Floating-point arithmetic. |
+| [complex](std/complex.md) | complex.h | Complex number arithmetic. |
+| [threads](std/threads.md) | threads.h | Standard multithreading (C11). |
+| [atomic](std/atomic.md) | stdatomic.h | Atomic operations. |
+| [time](std/time.md) | time.h | System time, Intervals, and Calendar conversion. |
+| [wchar](std/wchar.md) | wchar.h | Wide character and multibyte string handling. |
+| [signal](std/signal.md) | signal.h | Signal handling and standard signal types. |
+| [errno](std/errno.md) | errno.h | Error reporting macros and constants. |
 
 ### 📑 Specialized Utilities
 *Support headers and type-specific definitions.*
 
-| Header | Description |
-|:---|:---|
-| [int.md](std/int.md) / [inttypes.md](std/inttypes.md) | Fixed-width integers and format conversion. |
-| [bool.md](std/bool.md) / [iso646.md](std/iso646.md) | Boolean types and alternative operator spellings. |
-| [assert.md](std/assert.md) / [errno.md](std/errno.md) | Diagnostics and error reporting. |
-| [ctype.md](std/ctype.md) / [locale.md](std/locale.md) | Character classification and localization. |
-| [float.md](std/float.md) / [limits.md](std/limits.md) | Implementation-defined numeric limits. |
-| [def.md](std/def.md) / [arg.md](std/arg.md) | Common definitions and variable arguments. |
-| [setjmp.md](std/setjmp.md) / [fenv.md](std/fenv.md) | Non-local jumps and floating-point environment. |
-| [tgmath.md](std/tgmath.md) / [align.md](std/align.md) | Type-generic math and alignment support. |
+| Module | Header | Description |
+|:---|:---|:---|
+| [int](std/int.md) | stdint.h | Fixed-width integers. |
+| [inttypes](std/inttypes.md) | inttypes.h | Format conversion for integers. |
+| [bool](std/bool.md) | stdbool.h | Boolean types. |
+| [iso646](std/iso646.md) | iso646.h | Alternative operator spellings. |
+| [assert](std/assert.md) | assert.h | Diagnostics. |
+| [ctype](std/ctype.md) | ctype.h | Character classification. |
+| [locale](std/locale.md) | locale.h | Localization. |
+| [float](std/float.md) | float.h | Implementation-defined floating-point limits. |
+| [limits](std/limits.md) | limits.h | Implementation-defined integer limits. |
+| [def](std/def.md) | stddef.h | Common definitions. |
+| [arg](std/arg.md) | stdarg.h | Variable arguments. |
+| [setjmp](std/setjmp.md) | setjmp.h | Non-local jumps. |
+| [fenv](std/fenv.md) | fenv.h | Floating-point environment. |
+| [tgmath](std/tgmath.md) | tgmath.h | Type-generic math. |
+| [align](std/align.md) | stdalign.h | Alignment support. |
 
 ---
 
 ### 📂 [sys/](sys/) - Linux & POSIX API
 *Low-level operating system interfaces for systems programming.*
 
-- **System Calls**: [unistd.md](sys/unistd.md) (I/O, Fork), [fcntl.md](sys/fcntl.md) (Control), [ioctl.md](sys/ioctl.md) (Device Control)
-- **Networking**: [socket.md](sys/socket.md) (TCP/UDP, Unix Domain)
-- **Threads**: [pthread.md](sys/pthread.md) (POSIX Threads)
-- **Filesystem**: [stat.md](sys/stat.md) (Metadata), [dirent.md](sys/dirent.md) (Directory traversal)
-- **Memory**: [mman.md](sys/mman.md) (Memory mapping/protection)
-- **IPC & Signals**: [wait.md](sys/wait.md) (Process sync), [poll.md](sys/poll.md) (Multiplexing)
-- **System Info**: [utsname.md](sys/utsname.md) (Kernel/Version information)
+| Module | Header | Description |
+|:---|:---|:---|
+| [unistd](sys/unistd.md) | unistd.h | System calls for I/O, Fork, and process control. |
+| [fcntl](sys/fcntl.md) | fcntl.h | File control operations. |
+| [ioctl](sys/ioctl.md) | sys/ioctl.h | Device control operations. |
+| [socket](sys/socket.md) | sys/socket.h | TCP/UDP and Unix Domain networking. |
+| [pthread](sys/pthread.md) | pthread.h | POSIX threads. |
+| [stat](sys/stat.md) | sys/stat.h | Filesystem metadata. |
+| [dirent](sys/dirent.md) | dirent.h | Directory traversal. |
+| [mman](sys/mman.md) | sys/mman.h | Memory mapping and protection. |
+| [wait](sys/wait.md) | sys/wait.h | Process synchronization. |
+| [poll](sys/poll.md) | poll.h | I/O multiplexing. |
+| [utsname](sys/utsname.md) | sys/utsname.h | Kernel and version information. |
 
 ---
 
 ### 📂 [Graphics & Display](wayland/)
 *High-performance display protocols and rendering APIs.*
 
-- **Wayland**: [client.md](wayland/client.md) (Application API), [server.md](wayland/server.md) (Compositor API), [util.md](wayland/util.md) (Shared Utilities)
-- **DRM/KMS**: [core.md](drm/core.md) (Device access), [mode.md](drm/mode.md) (Mode-setting)
-- **OpenGL**: [gl.md](gl/gl.md) (Modern GPU Rendering Pipeline)
-- **SDL2**: [sdl.md](sdl/sdl.md) (Multimedia, Audio, Events)
+| Module | Header | Description |
+|:---|:---|:---|
+| [client](wayland/client.md) | wayland-client.h | Wayland application API. |
+| [server](wayland/server.md) | wayland-server.h | Wayland compositor API. |
+| [util](wayland/util.md) | wayland-util.h | Wayland shared utilities. |
+| [core](drm/core.md) | xf86drm.h | DRM device access. |
+| [mode](drm/mode.md) | xf86drmMode.h | DRM mode-setting. |
+| [gl](gl/gl.md) | GL/gl.h | OpenGL GPU rendering pipeline. |
+| [sdl](sdl/sdl.md) | SDL2/SDL.h | Multimedia, audio, and events. |
 
 ---
 
 ### 📂 [Third-Party Ecosystem](glib/)
 *Essential toolkits for modern C application development.*
 
-- 🛠️ **GLib**: [glib.md](glib/glib.md) (Data structures, Event loop)
-- 🔒 **OpenSSL**: [ssl.md](ssl/ssl.md) (Secure I/O), [crypto.md](ssl/crypto.md) (EVP)
-- 🌐 **libcurl**: [curl.md](curl/curl.md) (HTTP/Transfer Client)
-- 🗄️ **SQLite**: [sqlite3.md](sql/sqlite3.md) (Embedded Database)
-- 📉 **zlib**: [zlib.md](zlib/zlib.md) (DEFLATE Compression)
-- 🖼️ **Images**: [png.md](image/png.md), [jpeg.md](image/jpeg.md)
+| Module | Header | Description |
+|:---|:---|:---|
+| [glib](glib/glib.md) | glib.h | Data structures and event loop. |
+| [ssl](ssl/ssl.md) | openssl/ssl.h | Secure I/O. |
+| [crypto](ssl/crypto.md) | openssl/crypto.h | EVP cryptography. |
+| [curl](curl/curl.md) | curl/curl.h | HTTP and transfer client. |
+| [sqlite3](sql/sqlite3.md) | sqlite3.h | Embedded database. |
+| [zlib](zlib/zlib.md) | zlib.h | DEFLATE compression. |
+| [png](image/png.md) | png.h | PNG image handling. |
+| [jpeg](image/jpeg.md) | jpeglib.h | JPEG image handling. |
 
 ---
 
