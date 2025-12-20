@@ -24,7 +24,7 @@ The `stdnoreturn.h` header defines a macro for specifying that a function does n
 
 Used in a function declaration to specify that the function will not return to its caller (e.g., it calls `exit()` or `abort()`).
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdnoreturn.h>
@@ -41,3 +41,5 @@ int main(void) {
     return 0; // Never reached
 }
 ```
+</details>
+

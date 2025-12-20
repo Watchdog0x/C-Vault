@@ -25,7 +25,7 @@ The `errno.h` header defines several macros for reporting error conditions.
 
 An integer variable that is set by system calls and some library functions in the event of an error to indicate what went wrong. Its value is significant only when the return value of the call indicated an error.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <errno.h>
@@ -41,6 +41,8 @@ int main(void) {
     return 0;
 }
 ```
+
+</details>
 
 ### Error Constants
 

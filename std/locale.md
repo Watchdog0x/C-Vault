@@ -26,7 +26,7 @@ Significant fields include:
 - `currency_symbol`: Local currency symbol.
 - `int_curr_symbol`: International currency symbol.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <locale.h>
@@ -38,6 +38,8 @@ int main(void) {
     return 0;
 }
 ```
+
+</details>
 
 ---
 
@@ -55,7 +57,7 @@ Sets or queries the program's current locale.
 - `category`: `LC_ALL`, `LC_COLLATE`, `LC_CTYPE`, `LC_MONETARY`, `LC_NUMERIC`, `LC_TIME`.
 - `locale`: e.g., `"C"` (default), `""` (system default), `"en_US.UTF-8"`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <locale.h>
@@ -67,6 +69,8 @@ int main(void) {
     return 0;
 }
 ```
+
+</details>
 
 ### Formatting Info
 

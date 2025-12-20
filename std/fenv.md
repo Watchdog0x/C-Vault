@@ -38,7 +38,7 @@ Common macros for rounding directions:
 - `FE_DOWNWARD`: Round toward negative infinity.
 - `FE_TOWARDZERO`: Round toward zero.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <fenv.h>
@@ -50,6 +50,8 @@ int main(void) {
     return 0;
 }
 ```
+
+</details>
 
 ### Exceptions
 

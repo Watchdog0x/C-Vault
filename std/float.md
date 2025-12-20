@@ -32,7 +32,7 @@ The `float.h` header defines several macros that expand to various limits and pa
 - `DBL_MAX`: Maximum finite value.
 - `DBL_EPSILON`: Difference between 1.0 and the least value greater than 1.0.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <float.h>
@@ -45,3 +45,5 @@ int main(void) {
     return 0;
 }
 ```
+</details>
+

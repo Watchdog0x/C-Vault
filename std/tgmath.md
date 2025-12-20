@@ -24,7 +24,7 @@ For a function `f`, a call to its macro `f(x)` will resolve to:
 - `fl(x)` if `x` is `long double`.
 - `cf(x)` if `x` is `complex`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <tgmath.h>
@@ -44,3 +44,5 @@ int main(void) {
     return 0;
 }
 ```
+</details>
+

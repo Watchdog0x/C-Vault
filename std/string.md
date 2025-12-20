@@ -43,7 +43,7 @@ char *strcpy(char *dest, const char *src)
 
 Copies the string pointed to by `src` (including the null terminator) to the buffer pointed to by `dest`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <string.h>
@@ -58,6 +58,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### strncpy
 
 ```c
@@ -66,7 +68,7 @@ char *strncpy(char *dest, const char *src, size_t n)
 
 Copies at most `n` characters from `src` to `dest`. If `src` is shorter than `n`, the remainder is padded with null bytes.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <string.h>
@@ -82,6 +84,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### memcpy
 
 ```c
@@ -90,7 +94,7 @@ void *memcpy(void *dest, const void *src, size_t n)
 
 Copies `n` bytes from `src` to `dest`. The memory areas **must not overlap**.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <string.h>
@@ -108,6 +112,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### memmove
 
 ```c
@@ -116,7 +122,7 @@ void *memmove(void *dest, const void *src, size_t n)
 
 Copies `n` bytes from `src` to `dest`. Memory areas **may overlap**. Safer than `memcpy` for overlapping regions.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <string.h>
@@ -131,6 +137,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ---
 
 ### Concatenation
@@ -143,7 +151,7 @@ char *strcat(char *dest, const char *src)
 
 Appends the string `src` to the end of `dest`. The destination buffer must be large enough to hold the result.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <string.h>
@@ -158,6 +166,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### strncat
 
 ```c
@@ -166,7 +176,7 @@ char *strncat(char *dest, const char *src, size_t n)
 
 Appends at most `n` characters from `src` to `dest`, then adds a null terminator.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <string.h>
@@ -180,6 +190,8 @@ int main(void) {
     return 0;
 }
 ```
+
+</details>
 
 ---
 
@@ -196,7 +208,7 @@ Compares two strings lexicographically. Returns:
 * Negative value if `s1` < `s2`
 * Positive value if `s1` > `s2`
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <string.h>
@@ -218,6 +230,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### strncmp
 
 ```c
@@ -226,7 +240,7 @@ int strncmp(const char *s1, const char *s2, size_t n)
 
 Compares at most `n` characters of two strings.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <string.h>
@@ -243,6 +257,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### memcmp
 
 ```c
@@ -251,7 +267,7 @@ int memcmp(const void *s1, const void *s2, size_t n)
 
 Compares the first `n` bytes of memory areas `s1` and `s2`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <string.h>
@@ -268,6 +284,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ---
 
 ### Search
@@ -280,7 +298,7 @@ char *strchr(const char *s, int c)
 
 Returns a pointer to the first occurrence of character `c` in string `s`, or `NULL` if not found.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <string.h>
@@ -298,6 +316,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### strrchr
 
 ```c
@@ -306,7 +326,7 @@ char *strrchr(const char *s, int c)
 
 Returns a pointer to the last occurrence of character `c` in string `s`, or `NULL` if not found.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <string.h>
@@ -324,6 +344,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### strstr
 
 ```c
@@ -332,7 +354,7 @@ char *strstr(const char *haystack, const char *needle)
 
 Finds the first occurrence of the substring `needle` in `haystack`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <string.h>
@@ -352,6 +374,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### strtok
 
 ```c
@@ -360,7 +384,7 @@ char *strtok(char *str, const char *delim)
 
 Breaks string `str` into a series of tokens separated by `delim`. Modifies the original string.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <string.h>
@@ -383,6 +407,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ---
 
 ### Measurement
@@ -395,7 +421,7 @@ size_t strlen(const char *s)
 
 Returns the number of characters in the string `s`, excluding the null terminator.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <string.h>
@@ -409,6 +435,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ---
 
 ### Miscellaneous
@@ -421,7 +449,7 @@ void *memset(void *s, int c, size_t n)
 
 Fills the first `n` bytes of memory area `s` with the constant byte `c`. Commonly used to zero out arrays.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <string.h>
@@ -442,6 +470,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### strerror
 
 ```c
@@ -450,7 +480,7 @@ char *strerror(int errnum)
 
 Returns a pointer to the textual representation of system error `errnum`. Useful with `errno`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <string.h>
@@ -466,3 +496,5 @@ int main(void) {
     return 0;
 }
 ```
+</details>
+

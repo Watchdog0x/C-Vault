@@ -50,7 +50,7 @@ void va_end(va_list ap)
 
 Cleans up the `va_list` initialized by `va_start`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdarg.h>
@@ -71,3 +71,5 @@ int main(void) {
     return 0;
 }
 ```
+</details>
+

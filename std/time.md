@@ -74,7 +74,7 @@ time_t time(time_t *timer)
 
 Returns the current system calendar time. If `timer` is not NULL, the return value is also stored in `*timer`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <time.h>
@@ -88,6 +88,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### difftime
 
 ```c
@@ -96,7 +98,7 @@ double difftime(time_t time1, time_t time0)
 
 Computes the difference in seconds between two calendar times (`time1 - time0`).
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <time.h>
@@ -114,6 +116,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### mktime
 
 ```c
@@ -122,7 +126,7 @@ time_t mktime(struct tm *timeptr)
 
 Converts a `struct tm` to a `time_t` value. Useful for creating custom dates.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <time.h>
@@ -143,6 +147,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### clock
 
 ```c
@@ -151,7 +157,7 @@ clock_t clock(void)
 
 Returns the processor time used by the program since it started. Divide by `CLOCKS_PER_SEC` to get seconds.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <time.h>
@@ -170,6 +176,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ---
 
 ### Conversion Functions
@@ -182,7 +190,7 @@ struct tm *localtime(const time_t *timer)
 
 Converts a calendar time to a `struct tm` representing local time (adjusted for timezone).
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <time.h>
@@ -199,6 +207,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### gmtime
 
 ```c
@@ -207,7 +217,7 @@ struct tm *gmtime(const time_t *timer)
 
 Converts a calendar time to a `struct tm` representing UTC/GMT time.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <time.h>
@@ -222,6 +232,8 @@ int main(void) {
     return 0;
 }
 ```
+
+</details>
 
 ### strftime
 
@@ -241,7 +253,7 @@ Formats the time in `tm` according to `format` and stores it in string `s`. Retu
 - `%A` - Full weekday name
 - `%B` - Full month name
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <time.h>
@@ -264,6 +276,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### ctime
 
 ```c
@@ -272,7 +286,7 @@ char *ctime(const time_t *timer)
 
 Converts a calendar time to a string in a fixed format. Equivalent to `asctime(localtime(timer))`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <time.h>
@@ -287,6 +301,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### asctime
 
 ```c
@@ -295,7 +311,7 @@ char *asctime(const struct tm *timeptr)
 
 Converts a `struct tm` to a string in a fixed format.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <time.h>
@@ -310,3 +326,5 @@ int main(void) {
     return 0;
 }
 ```
+</details>
+

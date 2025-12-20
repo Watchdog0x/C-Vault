@@ -42,7 +42,7 @@ void longjmp(jmp_buf env, int val)
 
 Restores the environment saved in `env` by the most recent call to `setjmp`. The program execution resumes at the `setjmp` call point as if it had returned `val`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <setjmp.h>
@@ -65,3 +65,5 @@ int main(void) {
     return 0;
 }
 ```
+</details>
+

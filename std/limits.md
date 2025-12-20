@@ -46,7 +46,7 @@ The `limits.h` header defines macros for the sizes and ranges of integer types a
 | `LLONG_MAX` | 9223372036854775807 | Maximum value of `long long`. |
 | `ULLONG_MAX` | 18446744073709551615 | Maximum value of `unsigned long long`. |
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <limits.h>
@@ -61,3 +61,5 @@ int main(void) {
     return 0;
 }
 ```
+</details>
+

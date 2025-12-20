@@ -25,7 +25,7 @@ The `assert.h` header defines the `assert` macro and the `static_assert` macro (
 
 (C11) Checks the `expression` at compile time. If it is false, the compiler issues an error with the given `message`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <assert.h>
@@ -37,6 +37,8 @@ int main(void) {
     return 0;
 }
 ```
+
+</details>
 
 ---
 
@@ -54,7 +56,7 @@ If `expression` is false (equal to zero), `assert` writes information about the 
 
 **Note:** If the macro `NDEBUG` is defined when `assert.h` is included, the `assert` macro expands to nothing.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <assert.h>
@@ -69,3 +71,5 @@ int main(void) {
     return 0;
 }
 ```
+</details>
+

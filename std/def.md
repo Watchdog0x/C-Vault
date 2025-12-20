@@ -37,7 +37,7 @@ typedef unsigned long size_t;
 
 Unsigned integer type used for representing the size of objects. Commonly used with the `%zu` format specifier for printing.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stddef.h>
@@ -50,6 +50,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### ptrdiff_t
 
 ```c
@@ -58,7 +60,7 @@ typedef long ptrdiff_t;
 
 Signed integer type used for representing the difference between two pointers. Commonly used with the `%td` format specifier for printing.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stddef.h>
@@ -74,6 +76,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### wchar_t
 
 ```c
@@ -82,7 +86,7 @@ typedef int wchar_t;
 
 An integer type whose range of values can represent distinct codes for all members of the largest extended character set. Used for wide character handling.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stddef.h>
@@ -96,6 +100,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### NULL
 
 Macro that expands to a null pointer constant.
@@ -108,7 +114,7 @@ Macro that expands to a null pointer constant.
 
 Expands to an integral constant expression that has type `size_t`, the value of which is the offset in bytes to the structure member `member` from the beginning of its structure `type`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stddef.h>
@@ -125,3 +131,5 @@ int main(void) {
     return 0;
 }
 ```
+</details>
+

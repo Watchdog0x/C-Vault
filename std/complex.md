@@ -50,7 +50,7 @@ double cimag(double complex z)
 
 Extracts the imaginary component.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <complex.h>
@@ -63,13 +63,15 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### cabs
 
 ```c
 double cabs(double complex z)
 ```
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <complex.h>
@@ -82,6 +84,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### carg
 
 ```c
@@ -90,7 +94,7 @@ double carg(double complex z)
 
 Computes the argument (phase angle) of `z`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <complex.h>
@@ -103,6 +107,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### conj
 
 ```c
@@ -111,7 +117,7 @@ double complex conj(double complex z)
 
 Computes the complex conjugate of `z`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <complex.h>
@@ -125,6 +131,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### cexp
 
 ```c
@@ -133,7 +141,7 @@ double complex cexp(double complex z)
 
 Computes the complex exponential of `z`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <complex.h>
@@ -145,6 +153,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### clog
 
 ```c
@@ -153,7 +163,7 @@ double complex clog(double complex z)
 
 Computes the complex natural logarithm of `z`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <complex.h>
@@ -165,6 +175,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### csqrt
 
 ```c
@@ -173,7 +185,7 @@ double complex csqrt(double complex z)
 
 Computes the complex square root of `z`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <complex.h>
@@ -185,6 +197,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### csin
 
 ```c
@@ -193,7 +207,7 @@ double complex csin(double complex z)
 
 Computes the complex sine of `z`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <complex.h>
@@ -205,6 +219,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### ccos
 
 ```c
@@ -213,7 +229,7 @@ double complex ccos(double complex z)
 
 Computes the complex cosine of `z`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <complex.h>
@@ -225,6 +241,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### ctan
 
 ```c
@@ -233,7 +251,7 @@ double complex ctan(double complex z)
 
 Computes the complex tangent of `z`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <complex.h>
@@ -244,3 +262,5 @@ int main(void) {
     return 0;
 }
 ```
+</details>
+

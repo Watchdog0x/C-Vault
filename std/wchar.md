@@ -50,7 +50,7 @@ wchar_t *wcscpy(wchar_t *dest, const wchar_t *src)
 
 Copies the wide string `src` to `dest`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <wchar.h>
@@ -63,6 +63,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### wcscat
 
 ```c
@@ -71,7 +73,7 @@ wchar_t *wcscat(wchar_t *dest, const wchar_t *src)
 
 Appends the wide string `src` to `dest`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <wchar.h>
@@ -84,6 +86,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### wcslen
 
 ```c
@@ -92,7 +96,7 @@ size_t wcslen(const wchar_t *s)
 
 Computes the length of the wide string `s`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <wchar.h>
@@ -104,6 +108,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### wcscmp
 
 ```c
@@ -112,7 +118,7 @@ int wcscmp(const wchar_t *s1, const wchar_t *s2)
 
 Compares two wide strings.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <wchar.h>
@@ -125,6 +131,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### wcschr
 
 ```c
@@ -133,7 +141,7 @@ wchar_t *wcschr(const wchar_t *s, wchar_t c)
 
 Finds the first occurrence of `c` in wide string `s`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <wchar.h>
@@ -145,6 +153,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### Wide Input/Output
 
 ### wprintf
@@ -155,7 +165,7 @@ int wprintf(const wchar_t *format, ...)
 
 The wide-character equivalent of `printf`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <wchar.h>
@@ -165,6 +175,8 @@ int main(void) {
     return 0;
 }
 ```
+
+</details>
 
 ### fwprintf
 
@@ -192,7 +204,7 @@ size_t wcstombs(char *restrict s, const wchar_t *restrict pwcs, size_t n)
 
 Converts a wide string to a multibyte string.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <wchar.h>
@@ -205,6 +217,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### mbstowcs
 
 ```c
@@ -213,7 +227,7 @@ size_t mbstowcs(wchar_t *restrict pwcs, const char *restrict s, size_t n)
 
 Converts a multibyte string to a wide string.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <wchar.h>
@@ -225,6 +239,8 @@ int main(void) {
     return 0;
 }
 ```
+
+</details>
 
 ---
 

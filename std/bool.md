@@ -35,7 +35,7 @@ A keyword/macro that identifies a boolean type, capable of holding values `0` (f
 
 Standard macros for representing truth values.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdbool.h>
@@ -49,3 +49,5 @@ int main(void) {
     return 0;
 }
 ```
+</details>
+

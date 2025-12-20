@@ -110,7 +110,7 @@ void *malloc(size_t size)
 
 Allocates `size` bytes of uninitialized storage.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdlib.h>
@@ -124,6 +124,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### calloc
 
 ```c
@@ -132,7 +134,7 @@ void *calloc(size_t nmemb, size_t size)
 
 Allocates memory for an array of `nmemb` elements of `size` bytes each and initializes all bytes to zero.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdlib.h>
@@ -150,6 +152,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### realloc
 
 ```c
@@ -158,7 +162,7 @@ void *realloc(void *ptr, size_t size)
 
 Changes the size of the memory block pointed to by `ptr` to `size` bytes. May move the block to a new location.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdlib.h>
@@ -179,6 +183,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### free
 
 ```c
@@ -187,7 +193,7 @@ void free(void *ptr)
 
 Deallocates the space previously allocated by `malloc`, `calloc`, or `realloc`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdlib.h>
@@ -203,6 +209,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ---
 
 ### Process Control
@@ -215,7 +223,7 @@ void exit(int status)
 
 Terminating the calling process normally.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdlib.h>
@@ -225,6 +233,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### abort
 
 ```c
@@ -233,7 +243,7 @@ void abort(void)
 
 Causes abnormal program termination, without cleaning up resources. Signals SIGABRT.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdlib.h>
@@ -244,6 +254,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### atexit
 
 ```c
@@ -252,7 +264,7 @@ int atexit(void (*func)(void))
 
 Registers a function to be called at normal program termination.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdlib.h>
@@ -271,6 +283,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### _Exit
 
 ```c
@@ -279,7 +293,7 @@ void _Exit(int status)
 
 Terminates the calling process normally without cleaning up resources (C99).
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdlib.h>
@@ -289,6 +303,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### quick_exit
 
 ```c
@@ -297,7 +313,7 @@ void quick_exit(int status)
 
 Terminates the calling process normally with quick cleanup (C11).
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdlib.h>
@@ -312,6 +328,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### at_quick_exit
 
 ```c
@@ -320,7 +338,7 @@ int at_quick_exit(void (*func)(void))
 
 Registers a function to be called at quick program termination (C11).
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdlib.h>
@@ -335,6 +353,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ---
 
 ### Numeric Conversion
@@ -347,7 +367,7 @@ int atoi(const char *nptr)
 
 Converts the initial portion of the string `nptr` to an `int`. Ignores leading whitespace, stops at first non-digit.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdlib.h>
@@ -361,6 +381,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### atol
 
 ```c
@@ -369,7 +391,7 @@ long atol(const char *nptr)
 
 Converts the initial portion of the string `nptr` to a `long`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdlib.h>
@@ -383,6 +405,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### atof
 
 ```c
@@ -391,7 +415,7 @@ double atof(const char *nptr)
 
 Converts the initial portion of the string `nptr` to a `double`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdlib.h>
@@ -405,6 +429,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### strtol
 
 ```c
@@ -413,7 +439,7 @@ long strtol(const char *nptr, char **endptr, int base)
 
 Converts the initial portion of `nptr` to a `long` in the given `base` (2-36). Sets `endptr` to point after the converted part.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdlib.h>
@@ -428,6 +454,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### strtod
 
 ```c
@@ -436,7 +464,7 @@ double strtod(const char *nptr, char **endptr)
 
 Converts the initial portion of `nptr` to a `double`. Sets `endptr` to point after the converted part.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdlib.h>
@@ -451,6 +479,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### strtoll
 
 ```c
@@ -459,7 +489,7 @@ long long strtoll(const char *nptr, char **endptr, int base)
 
 Converts the initial portion of `nptr` to a `long long` in the given `base` (C99).
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdlib.h>
@@ -474,6 +504,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### strtoull
 
 ```c
@@ -482,7 +514,7 @@ unsigned long long strtoull(const char *nptr, char **endptr, int base)
 
 Converts the initial portion of `nptr` to an `unsigned long long` in the given `base` (C99).
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdlib.h>
@@ -497,6 +529,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### strtold
 
 ```c
@@ -505,7 +539,7 @@ long double strtold(const char *nptr, char **endptr)
 
 Converts the initial portion of `nptr` to a `long double` (C99).
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdlib.h>
@@ -520,6 +554,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ---
 
 ### Pseudo-Random Numbers
@@ -532,7 +568,7 @@ int rand(void)
 
 Returns a pseudo-random integer between 0 and RAND_MAX.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdlib.h>
@@ -545,6 +581,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### srand
 
 ```c
@@ -553,7 +591,7 @@ void srand(unsigned int seed)
 
 Seeds the pseudo-random number generator used by `rand()`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdlib.h>
@@ -568,6 +606,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ---
 
 ### Searching & Sorting
@@ -580,7 +620,7 @@ void qsort(void *base, size_t nmemb, size_t size, int (*compar)(const void *, co
 
 Sorts an array of `nmemb` elements, each of `size` bytes, using the comparison function `compar`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdlib.h>
@@ -600,6 +640,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### bsearch
 
 ```c
@@ -608,7 +650,7 @@ void *bsearch(const void *key, const void *base, size_t nmemb, size_t size, int 
 
 Searches for `key` in a sorted array of `nmemb` elements.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdlib.h>
@@ -629,6 +671,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ---
 
 ### Integer Arithmetic
@@ -641,7 +685,7 @@ int abs(int x)
 
 Computes the absolute value of `x`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdlib.h>
@@ -653,6 +697,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### labs
 
 ```c
@@ -661,7 +707,7 @@ long labs(long x)
 
 Computes the absolute value of `x` for `long` type.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdlib.h>
@@ -673,6 +719,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### llabs
 
 ```c
@@ -681,7 +729,7 @@ long long llabs(long long x)
 
 Computes the absolute value of `x` for `long long` type (C99).
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdlib.h>
@@ -693,6 +741,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### div
 
 ```c
@@ -701,7 +751,7 @@ div_t div(int numer, int denom)
 
 Computes quotient and remainder of integer division.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdlib.h>
@@ -714,6 +764,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### ldiv
 
 ```c
@@ -722,7 +774,7 @@ ldiv_t ldiv(long numer, long denom)
 
 Computes quotient and remainder of long integer division.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdlib.h>
@@ -735,6 +787,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### lldiv
 
 ```c
@@ -743,7 +797,7 @@ lldiv_t lldiv(long long numer, long long denom)
 
 Computes quotient and remainder of long long integer division (C99).
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdlib.h>
@@ -755,6 +809,8 @@ int main(void) {
     return 0;
 }
 ```
+
+</details>
 
 ---
 
@@ -768,7 +824,7 @@ int system(const char *command)
 
 Executes a command in the host environment.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdlib.h>
@@ -779,6 +835,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### getenv
 
 ```c
@@ -787,7 +845,7 @@ char *getenv(const char *name)
 
 Gets the value of an environment variable.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdlib.h>
@@ -802,6 +860,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ---
 
 ### Multibyte Characters
@@ -814,7 +874,7 @@ int mblen(const char *s, size_t n)
 
 Returns the number of bytes in the next multibyte character.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdlib.h>
@@ -828,6 +888,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### mbtowc
 
 ```c
@@ -836,7 +898,7 @@ int mbtowc(wchar_t *pwc, const char *s, size_t n)
 
 Converts a multibyte character to a wide character.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdlib.h>
@@ -852,6 +914,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### wctomb
 
 ```c
@@ -860,7 +924,7 @@ int wctomb(char *s, wchar_t wc)
 
 Converts a wide character to a multibyte character.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdlib.h>
@@ -876,6 +940,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### mbstowcs
 
 ```c
@@ -884,7 +950,7 @@ size_t mbstowcs(wchar_t *pwcs, const char *s, size_t n)
 
 Converts a multibyte string to a wide string.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdlib.h>
@@ -900,6 +966,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### wcstombs
 
 ```c
@@ -908,7 +976,7 @@ size_t wcstombs(char *s, const wchar_t *pwcs, size_t n)
 
 Converts a wide string to a multibyte string.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdlib.h>
@@ -922,3 +990,6 @@ int main(void) {
     printf("Converted: %s, Length: %zu\n", mbs, len);
     return 0;
 }
+```
+
+</details>

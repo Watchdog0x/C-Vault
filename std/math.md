@@ -58,7 +58,7 @@ double sin(double x)
 
 Computes the sine of an angle `x` (measured in radians).
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <math.h>
@@ -72,6 +72,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### cos
 
 ```c
@@ -80,7 +82,7 @@ double cos(double x)
 
 Computes the cosine of an angle `x` (measured in radians).
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <math.h>
@@ -94,6 +96,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### tan
 
 ```c
@@ -102,7 +106,7 @@ double tan(double x)
 
 Computes the tangent of an angle `x` (measured in radians).
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <math.h>
@@ -115,6 +119,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### asin
 
 ```c
@@ -123,7 +129,7 @@ double asin(double x)
 
 Computes the arc sine of `x`, returning a value in the range [-π/2, π/2].
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <math.h>
@@ -136,6 +142,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### acos
 
 ```c
@@ -144,7 +152,7 @@ double acos(double x)
 
 Computes the arc cosine of `x`, returning a value in the range [0, π].
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <math.h>
@@ -157,6 +165,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### atan
 
 ```c
@@ -165,7 +175,7 @@ double atan(double x)
 
 Computes the arc tangent of `x`, returning a value in the range [-π/2, π/2].
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <math.h>
@@ -178,6 +188,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### atan2
 
 ```c
@@ -186,7 +198,7 @@ double atan2(double y, double x)
 
 Computes the arc tangent of `y/x`, using the signs of both arguments to determine the correct quadrant. Returns a value in the range [-π, π].
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <math.h>
@@ -200,6 +212,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ---
 
 ### Exponential & Logarithmic
@@ -212,7 +226,7 @@ double exp(double x)
 
 Computes the exponential function e^x.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <math.h>
@@ -226,6 +240,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### log
 
 ```c
@@ -234,7 +250,7 @@ double log(double x)
 
 Computes the natural logarithm (base e) of `x`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <math.h>
@@ -248,6 +264,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### log10
 
 ```c
@@ -256,7 +274,7 @@ double log10(double x)
 
 Computes the common logarithm (base 10) of `x`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <math.h>
@@ -270,6 +288,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### pow
 
 ```c
@@ -278,7 +298,7 @@ double pow(double x, double y)
 
 Computes `x` raised to the power of `y` (x^y).
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <math.h>
@@ -292,6 +312,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### sqrt
 
 ```c
@@ -300,7 +322,7 @@ double sqrt(double x)
 
 Computes the square root of `x`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <math.h>
@@ -314,6 +336,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### cbrt
 
 ```c
@@ -322,7 +346,7 @@ double cbrt(double x)
 
 Computes the cube root of `x` (C99).
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <math.h>
@@ -336,6 +360,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ---
 
 ### Rounding & Remainder
@@ -348,7 +374,7 @@ double ceil(double x)
 
 Rounds `x` upward to the nearest integer.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <math.h>
@@ -361,6 +387,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### floor
 
 ```c
@@ -369,7 +397,7 @@ double floor(double x)
 
 Rounds `x` downward to the nearest integer.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <math.h>
@@ -382,6 +410,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### round
 
 ```c
@@ -390,7 +420,7 @@ double round(double x)
 
 Rounds `x` to the nearest integer value (C99).
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <math.h>
@@ -403,6 +433,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### trunc
 
 ```c
@@ -411,7 +443,7 @@ double trunc(double x)
 
 Rounds `x` toward zero, removing the fractional part (C99).
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <math.h>
@@ -424,6 +456,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### fmod
 
 ```c
@@ -432,7 +466,7 @@ double fmod(double x, double y)
 
 Computes the floating-point remainder of `x/y`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <math.h>
@@ -446,6 +480,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### remainder
 
 ```c
@@ -454,7 +490,7 @@ double remainder(double x, double y)
 
 Computes the IEEE remainder of `x/y` (C99).
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <math.h>
@@ -466,6 +502,8 @@ int main(void) {
     return 0;
 }
 ```
+
+</details>
 
 ---
 
@@ -479,7 +517,7 @@ double fabs(double x)
 
 Computes the absolute value of `x`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <math.h>
@@ -492,6 +530,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### fmax
 
 ```c
@@ -500,7 +540,7 @@ double fmax(double x, double y)
 
 Returns the larger of two floating-point values (C99).
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <math.h>
@@ -513,6 +553,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### fmin
 
 ```c
@@ -521,7 +563,7 @@ double fmin(double x, double y)
 
 Returns the smaller of two floating-point values (C99).
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <math.h>
@@ -533,6 +575,8 @@ int main(void) {
     return 0;
 }
 ```
+
+</details>
 
 ---
 
@@ -546,7 +590,7 @@ double sinh(double x)
 
 Computes the hyperbolic sine of `x`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <math.h>
@@ -559,6 +603,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### cosh
 
 ```c
@@ -567,7 +613,7 @@ double cosh(double x)
 
 Computes the hyperbolic cosine of `x`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <math.h>
@@ -580,6 +626,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### tanh
 
 ```c
@@ -588,7 +636,7 @@ double tanh(double x)
 
 Computes the hyperbolic tangent of `x`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <math.h>
@@ -601,6 +649,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### asinh
 
 ```c
@@ -609,7 +659,7 @@ double asinh(double x)
 
 Computes the inverse hyperbolic sine of `x` (C99).
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <math.h>
@@ -622,6 +672,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### acosh
 
 ```c
@@ -630,7 +682,7 @@ double acosh(double x)
 
 Computes the inverse hyperbolic cosine of `x` (C99).
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <math.h>
@@ -643,6 +695,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### atanh
 
 ```c
@@ -651,7 +705,7 @@ double atanh(double x)
 
 Computes the inverse hyperbolic tangent of `x` (C99).
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <math.h>
@@ -663,3 +717,5 @@ int main(void) {
     return 0;
 }
 ```
+</details>
+

@@ -28,7 +28,7 @@ int isalpha(int c)
 
 Checks if `c` is an alphabetic character (a-z, A-Z).
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <ctype.h>
@@ -47,6 +47,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### isdigit
 
 ```c
@@ -55,7 +57,7 @@ int isdigit(int c)
 
 Checks if `c` is a decimal digit ('0' through '9').
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <ctype.h>
@@ -74,6 +76,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### isalnum
 
 ```c
@@ -82,7 +86,7 @@ int isalnum(int c)
 
 Checks if `c` is an alphanumeric character (either a letter or a digit).
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <ctype.h>
@@ -102,6 +106,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### isspace
 
 ```c
@@ -110,7 +116,7 @@ int isspace(int c)
 
 Checks if `c` is a whitespace character (space, form feed `\f`, line feed `\n`, carriage return `\r`, horizontal tab `\t`, vertical tab `\v`).
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <ctype.h>
@@ -131,6 +137,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### isupper
 
 ```c
@@ -139,7 +147,7 @@ int isupper(int c)
 
 Checks if `c` is an uppercase letter (A-Z).
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <ctype.h>
@@ -154,6 +162,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### islower
 
 ```c
@@ -162,7 +172,7 @@ int islower(int c)
 
 Checks if `c` is a lowercase letter (a-z).
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <ctype.h>
@@ -177,6 +187,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ---
 
 ### Transformation Functions
@@ -189,7 +201,7 @@ int tolower(int c)
 
 Converts `c` to its lowercase equivalent if it's an uppercase letter; otherwise, returns `c` unchanged.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <ctype.h>
@@ -206,6 +218,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### toupper
 
 ```c
@@ -214,7 +228,7 @@ int toupper(int c)
 
 Converts `c` to its uppercase equivalent if it's a lowercase letter; otherwise, returns `c` unchanged.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <ctype.h>
@@ -231,6 +245,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ---
 
 ### Other Check Functions
@@ -243,7 +259,7 @@ int ispunct(int c)
 
 Checks if `c` is a punctuation character (any printable character that is not a space or alphanumeric).
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <ctype.h>
@@ -264,6 +280,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### iscntrl
 
 ```c
@@ -272,7 +290,7 @@ int iscntrl(int c)
 
 Checks if `c` is a control character (ASCII 0-31 and 127).
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <ctype.h>
@@ -291,6 +309,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### isxdigit
 
 ```c
@@ -299,7 +319,7 @@ int isxdigit(int c)
 
 Checks if `c` is a hexadecimal digit (0-9, a-f, A-F).
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <ctype.h>
@@ -319,6 +339,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### isprint
 
 ```c
@@ -327,7 +349,7 @@ int isprint(int c)
 
 Checks if `c` is a printable character (including space).
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <ctype.h>
@@ -342,6 +364,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### isgraph
 
 ```c
@@ -350,7 +374,7 @@ int isgraph(int c)
 
 Checks if `c` is a printable character excluding space.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <ctype.h>
@@ -369,6 +393,8 @@ int main(void) {
     return 0;
 }
 ```
+
+</details>
 
 ---
 

@@ -25,7 +25,7 @@ Used to specify the alignment for an object.
 
 Used to query the alignment requirement of a type.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdalign.h>
@@ -41,3 +41,5 @@ int main(void) {
     return 0;
 }
 ```
+</details>
+

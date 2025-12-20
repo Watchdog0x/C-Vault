@@ -67,7 +67,7 @@ int printf(const char *format, ...)
 
 Writes formatted output to the standard output stream (`stdout`).
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdio.h>
@@ -80,6 +80,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### fprintf
 
 ```c
@@ -88,7 +90,7 @@ int fprintf(FILE *stream, const char *format, ...)
 
 Writes formatted output to the specified `stream`. Common for writing to files or `stderr`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdio.h>
@@ -103,6 +105,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### snprintf
 
 ```c
@@ -111,7 +115,7 @@ int snprintf(char *str, size_t size, const char *format, ...)
 
 Writes formatted output to a character buffer `str` with a maximum `size`. This is the safe alternative to `sprintf`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 char buffer[50];
@@ -119,6 +123,8 @@ int score = 95;
 snprintf(buffer, sizeof(buffer), "Score: %d", score);
 
 ```
+
+</details>
 
 ---
 
@@ -132,13 +138,15 @@ int scanf(const char *format, ...)
 
 Reads formatted input from `stdin`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 int val;
 printf("Enter a number: ");
 scanf("%d", &val); // Note the use of & (address-of) operator
 ```
+
+</details>
 
 ### sscanf
 
@@ -148,7 +156,7 @@ int sscanf(const char *str, const char *format, ...)
 
 Reads formatted data from a string instead of a stream.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdio.h>
@@ -161,6 +169,8 @@ int main(void) {
     return 0;
 }
 ```
+
+</details>
 
 ---
 
@@ -179,7 +189,7 @@ Opens the file and associates a stream with it.
 * `"w"`: Write (overwrites file)
 * `"a"`: Append (adds to end of file)
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 FILE *fp = fopen("test.txt", "w");
@@ -189,6 +199,8 @@ if (fp != NULL) {
 }
 
 ```
+
+</details>
 
 ### fclose
 
@@ -244,7 +256,7 @@ int fputs(const char *s, FILE *stream)
 
 Writes a string to a stream.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 char buffer[100];
@@ -252,6 +264,8 @@ printf("Enter a line: ");
 fgets(buffer, 100, stdin);
 fputs(buffer, stdout);
 ```
+
+</details>
 
 ---
 
@@ -265,7 +279,7 @@ size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream)
 
 Reads binary data from a stream.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdio.h>
@@ -280,6 +294,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### fwrite
 
 ```c
@@ -288,7 +304,7 @@ size_t fwrite(const void *ptr, size_t size, size_t nmemb, FILE *stream)
 
 Writes binary data to a stream.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdio.h>
@@ -302,6 +318,8 @@ int main(void) {
     return 0;
 }
 ```
+
+</details>
 
 ---
 

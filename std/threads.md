@@ -59,7 +59,7 @@ int thrd_create(thrd_t *thr, thrd_start_t func, void *arg)
 
 Starts a new thread. Returns `thrd_success` on success.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <threads.h>
@@ -75,6 +75,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### thrd_join
 
 ```c
@@ -83,7 +85,7 @@ int thrd_join(thrd_t thr, int *res)
 
 Blocks until the thread `thr` terminates. Stores the return value in `res` if not NULL.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <threads.h>
@@ -104,6 +106,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### thrd_exit
 
 ```c
@@ -112,7 +116,7 @@ _Noreturn void thrd_exit(int res)
 
 Terminates the calling thread with return value `res`.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <threads.h>
@@ -123,6 +127,8 @@ int worker(void *arg) {
 }
 ```
 
+</details>
+
 ### thrd_detach
 
 ```c
@@ -131,7 +137,7 @@ int thrd_detach(thrd_t thr)
 
 Detaches the thread `thr`, allowing it to run independently.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <threads.h>
@@ -146,6 +152,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### thrd_current
 
 ```c
@@ -154,7 +162,7 @@ thrd_t thrd_current(void)
 
 Returns the thread ID of the calling thread.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <threads.h>
@@ -166,6 +174,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### thrd_equal
 
 ```c
@@ -174,7 +184,7 @@ int thrd_equal(thrd_t thr0, thrd_t thr1)
 
 Checks if two thread IDs refer to the same thread.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <threads.h>
@@ -189,6 +199,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### thrd_yield
 
 ```c
@@ -197,7 +209,7 @@ void thrd_yield(void)
 
 Yields the execution of the current thread to another thread.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <threads.h>
@@ -211,6 +223,8 @@ int worker(void *arg) {
 }
 ```
 
+</details>
+
 ### thrd_sleep
 
 ```c
@@ -219,7 +233,7 @@ int thrd_sleep(const struct timespec *duration, struct timespec *remaining)
 
 Makes the calling thread sleep for the given duration.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <threads.h>
@@ -231,6 +245,8 @@ int main(void) {
     return 0;
 }
 ```
+
+</details>
 
 ---
 
@@ -252,7 +268,7 @@ void mtx_destroy(mtx_t *mtx)
 
 Destroys a mutex.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <threads.h>
@@ -266,6 +282,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### mtx_trylock
 
 ```c
@@ -274,7 +292,7 @@ int mtx_trylock(mtx_t *mtx)
 
 Tries to lock a mutex without blocking.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <threads.h>
@@ -291,6 +309,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### mtx_lock
 
 ```c
@@ -299,7 +319,7 @@ int mtx_lock(mtx_t *mtx)
 
 Locks a mutex to protect a critical section.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <threads.h>
@@ -323,6 +343,8 @@ int main(void) {
     return 0;
 }
 ```
+
+</details>
 
 ### mtx_timedlock
 
@@ -364,7 +386,7 @@ int cnd_wait(cnd_t *cond, mtx_t *mtx)
 
 Waits on a condition variable, atomically unlocking the mutex.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <threads.h>
@@ -382,6 +404,8 @@ int main(void) {
     return 0;
 }
 ```
+
+</details>
 
 ### cnd_timedwait
 
@@ -407,7 +431,7 @@ int cnd_signal(cnd_t *cond)
 
 Signals one waiting thread on the condition variable.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <threads.h>
@@ -420,3 +444,5 @@ int main(void) {
     return 0;
 }
 ```
+</details>
+

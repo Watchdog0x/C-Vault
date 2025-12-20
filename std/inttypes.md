@@ -78,7 +78,7 @@ Format specifier macros for fixed-width integer types defined in `<inttypes.h>`:
 | `SCNdMAX` | `"lld"` | Scan `intmax_t` as signed decimal |
 | `SCNxMAX` | `"llx"` | Scan `uintmax_t` as hexadecimal |
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <inttypes.h>
@@ -94,6 +94,8 @@ int main(void) {
     return 0;
 }
 ```
+
+</details>
 
 ---
 

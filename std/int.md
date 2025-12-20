@@ -30,7 +30,7 @@ These types are provided only if the implementation supports them.
 - `int8_t`, `int16_t`, `int32_t`, `int64_t`
 - `uint8_t`, `uint16_t`, `uint32_t`, `uint64_t`
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdint.h>
@@ -42,6 +42,8 @@ int main(void) {
     return 0;
 }
 ```
+
+</details>
 
 ### Pointer-sized Integer Types
 
@@ -59,7 +61,7 @@ Signed and unsigned integer types that can represent any value of any other inte
 
 For each type defined in `stdint.h`, there are macros defining its minimum and maximum values (e.g., `INT8_MIN`, `INT8_MAX`, `UINT8_MAX`).
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdint.h>
@@ -70,3 +72,5 @@ int main(void) {
     return 0;
 }
 ```
+</details>
+

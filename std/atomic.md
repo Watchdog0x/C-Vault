@@ -84,7 +84,7 @@ Atomically returns the value of `object`.
 C atomic_fetch_add(volatile A *object, M operand)
 ```
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdatomic.h>
@@ -98,6 +98,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### atomic_fetch_sub
 
 ```c
@@ -106,7 +108,7 @@ C atomic_fetch_sub(volatile A *object, M operand)
 
 Atomically subtracts `operand` from `object` and returns the previous value.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdatomic.h>
@@ -119,6 +121,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### atomic_exchange
 
 ```c
@@ -127,7 +131,7 @@ C atomic_exchange(volatile A *object, M desired)
 
 Atomically replaces the value of `object` with `desired` and returns the previous value.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdatomic.h>
@@ -140,6 +144,8 @@ int main(void) {
     return 0;
 }
 ```
+
+</details>
 
 ### atomic_compare_exchange_strong
 
@@ -161,7 +167,7 @@ void atomic_thread_fence(memory_order order)
 
 Establishes a memory synchronization order between threads.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdatomic.h>
@@ -173,6 +179,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### atomic_signal_fence
 
 ```c
@@ -181,7 +189,7 @@ void atomic_signal_fence(memory_order order)
 
 Establishes a memory synchronization order within a thread for signal handlers.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <stdatomic.h>
@@ -192,3 +200,5 @@ int main(void) {
     return 0;
 }
 ```
+</details>
+

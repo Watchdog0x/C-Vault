@@ -58,7 +58,7 @@ void (*signal(int sig, void (*func)(int)))(int)
 
 Sets a handler for signal `sig`. The `func` can be a pointer to a function, or one of the macros `SIG_DFL` (default action) or `SIG_IGN` (ignore signal).
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <signal.h>
@@ -78,6 +78,8 @@ int main(void) {
 }
 ```
 
+</details>
+
 ### raise
 
 ```c
@@ -86,7 +88,7 @@ int raise(int sig)
 
 Sends the signal `sig` to the executing program. Returns 0 if successful.
 
-**Example:**
+<details><summary>Example</summary>
 
 ```c
 #include <signal.h>
@@ -102,6 +104,8 @@ int main(void) {
     return 0;
 }
 ```
+
+</details>
 
 ---
 
