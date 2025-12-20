@@ -1,5 +1,9 @@
 # locale.h - Localization
 
+**Category:** 📂 std/ (C Standard Library)  
+**Header:** `<locale.h>`  
+**Scope:** C89, C99, C11
+
 The `locale.h` header defines structures and functions for controlling various locale-specific settings.
 
 ## Facilities Overview

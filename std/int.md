@@ -1,5 +1,9 @@
 # stdint.h - Integer Types
 
+**Category:** 📂 std/ (C Standard Library)  
+**Header:** `<stdint.h>`  
+**Scope:** C99, C11
+
 The `stdint.h` header declares sets of integer types having specified widths and defines corresponding sets of macros.
 
 

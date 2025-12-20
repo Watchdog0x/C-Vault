@@ -1,6 +1,10 @@
 # stdalign.h - Alignment
 
-The `stdalign.h` header (C11) defines macros for querying and specifying the alignment of objects.
+**Category:** 📂 std/ (C Standard Library)  
+**Header:** `<stdalign.h>`  
+**Scope:** C11
+
+The `stdalign.h` header defines macros for querying and specifying the alignment of objects.
 
 ## Facilities Overview
 

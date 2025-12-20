@@ -1,5 +1,9 @@
 # setjmp.h - Non-local Jumps
 
+**Category:** 📂 std/ (C Standard Library)  
+**Header:** `<setjmp.h>`  
+**Scope:** C89, C99, C11
+
 The `setjmp.h` header declares the function `longjmp` and defines the macro `setjmp`, for bypassing the normal function call and return discipline.
 
 ## Facilities Overview

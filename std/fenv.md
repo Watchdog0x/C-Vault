@@ -1,5 +1,9 @@
 # fenv.h - Floating-Point Environment
 
+**Category:** 📂 std/ (C Standard Library)  
+**Header:** `<fenv.h>`  
+**Scope:** C99, C11
+
 The `fenv.h` header defines several macros and functions for managing and controlling the floating-point environment.
 
 ## Facilities Overview

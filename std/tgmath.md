@@ -1,12 +1,16 @@
 # tgmath.h - Type-generic Math
 
+**Category:** 📂 std/ (C Standard Library)  
+**Header:** `<tgmath.h>`  
+**Scope:** C99, C11
+
 The `tgmath.h` header defines type-generic macros that expand to the appropriate `math.h` or `complex.h` function based on the types of the arguments.
 
 ## Facilities Overview
 
 | Facility Category | Key Symbols | Description |
 |-------------------|-------------|-------------|
-| Generic Functions | sin, cos, pow, sqrt, log | Overloaded macros for real and complex types. |
+| [Generic Functions](#generic-behavior) | sin, cos, pow, sqrt, log | Overloaded macros for real and complex types. |
 
 ---
 

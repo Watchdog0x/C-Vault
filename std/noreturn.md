@@ -1,6 +1,10 @@
 # stdnoreturn.h - Non-returning Functions
 
-The `stdnoreturn.h` (C11) header defines a macro for specifying that a function does not return to its caller.
+**Category:** 📂 std/ (C Standard Library)  
+**Header:** `<stdnoreturn.h>`  
+**Scope:** C11
+
+The `stdnoreturn.h` header defines a macro for specifying that a function does not return to its caller.
 
 ## Facilities Overview
 

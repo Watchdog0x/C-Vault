@@ -1,13 +1,17 @@
 # stdarg.h - Variable Arguments
 
+**Category:** 📂 std/ (C Standard Library)  
+**Header:** `<stdarg.h>`  
+**Scope:** C89, C99, C11
+
 The `stdarg.h` header defines macros for stepping through a list of function arguments whose number and types are not known to the called function.
 
 ## Facilities Overview
 
 | Facility Category | Key Symbols | Description |
 |-------------------|-------------|-------------|
-| Macros | va_start, va_arg, va_end, va_copy | Managing variable argument lists. |
-| Types | va_list | Type for holding argument list information. |
+| [Macros](#argument-list-management) | [va_start](#va_start), [va_arg](#va_arg), [va_end](#va_end), [va_copy](#va_copy) | Managing variable argument lists. |
+| [Types](#types--variables) | [va_list](#va_list) | Type for holding argument list information. |
 
 ---
 

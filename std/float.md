@@ -1,5 +1,9 @@
 # float.h - Floating-Point Limits
 
+**Category:** 📂 std/ (C Standard Library)  
+**Header:** `<float.h>`  
+**Scope:** C89, C99, C11
+
 The `float.h` header defines several macros that expand to various limits and parameters of the standard floating-point types.
 
 ## Facilities Overview

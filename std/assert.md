@@ -1,13 +1,17 @@
 # assert.h - Diagnostics
 
+**Category:** 📂 std/ (C Standard Library)  
+**Header:** `<assert.h>`  
+**Scope:** C89, C99, C11
+
 The `assert.h` header defines the `assert` macro and the `static_assert` macro (since C11).
 
 ## Facilities Overview
 
 | Facility Category | Key Symbols | Description |
 |-------------------|-------------|-------------|
-| Runtime Diagnostics| assert | Aborting program execution if a condition is false. |
-| Static Diagnostics | static_assert | Compile-time constant expression checking. |
+| [Static Diagnostics](#types--variables) | [static_assert](#static_assert) | Compile-time constant expression checking. |
+| [Runtime Diagnostics](#runtime-diagnostics) | [assert](#assert) | Aborting program execution if a condition is false. |
 
 ---
 
