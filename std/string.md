@@ -35,7 +35,7 @@ Unsigned integer type used for representing sizes of objects and return values f
 
 ### Copying
 
-#### strcpy
+### strcpy
 
 ```c
 char *strcpy(char *dest, const char *src)
@@ -58,7 +58,7 @@ int main(void) {
 }
 ```
 
-#### strncpy
+### strncpy
 
 ```c
 char *strncpy(char *dest, const char *src, size_t n)
@@ -82,7 +82,7 @@ int main(void) {
 }
 ```
 
-#### memcpy
+### memcpy
 
 ```c
 void *memcpy(void *dest, const void *src, size_t n)
@@ -108,7 +108,7 @@ int main(void) {
 }
 ```
 
-#### memmove
+### memmove
 
 ```c
 void *memmove(void *dest, const void *src, size_t n)
@@ -135,7 +135,7 @@ int main(void) {
 
 ### Concatenation
 
-#### strcat
+### strcat
 
 ```c
 char *strcat(char *dest, const char *src)
@@ -158,7 +158,7 @@ int main(void) {
 }
 ```
 
-#### strncat
+### strncat
 
 ```c
 char *strncat(char *dest, const char *src, size_t n)
@@ -185,7 +185,7 @@ int main(void) {
 
 ### Comparison
 
-#### strcmp
+### strcmp
 
 ```c
 int strcmp(const char *s1, const char *s2)
@@ -218,7 +218,7 @@ int main(void) {
 }
 ```
 
-#### strncmp
+### strncmp
 
 ```c
 int strncmp(const char *s1, const char *s2, size_t n)
@@ -243,7 +243,7 @@ int main(void) {
 }
 ```
 
-#### memcmp
+### memcmp
 
 ```c
 int memcmp(const void *s1, const void *s2, size_t n)
@@ -272,7 +272,7 @@ int main(void) {
 
 ### Search
 
-#### strchr
+### strchr
 
 ```c
 char *strchr(const char *s, int c)
@@ -298,7 +298,7 @@ int main(void) {
 }
 ```
 
-#### strrchr
+### strrchr
 
 ```c
 char *strrchr(const char *s, int c)
@@ -324,7 +324,7 @@ int main(void) {
 }
 ```
 
-#### strstr
+### strstr
 
 ```c
 char *strstr(const char *haystack, const char *needle)
@@ -352,7 +352,7 @@ int main(void) {
 }
 ```
 
-#### strtok
+### strtok
 
 ```c
 char *strtok(char *str, const char *delim)
@@ -387,7 +387,7 @@ int main(void) {
 
 ### Measurement
 
-#### strlen
+### strlen
 
 ```c
 size_t strlen(const char *s)
@@ -413,7 +413,7 @@ int main(void) {
 
 ### Miscellaneous
 
-#### memset
+### memset
 
 ```c
 void *memset(void *s, int c, size_t n)
@@ -442,7 +442,7 @@ int main(void) {
 }
 ```
 
-#### strerror
+### strerror
 
 ```c
 char *strerror(int errnum)

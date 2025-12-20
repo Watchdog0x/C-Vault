@@ -50,7 +50,7 @@ Constant expression of type `float` representing a quiet NaN (Not a Number) (C99
 
 ### Trigonometric Functions
 
-#### sin
+### sin
 
 ```c
 double sin(double x)
@@ -72,7 +72,7 @@ int main(void) {
 }
 ```
 
-#### cos
+### cos
 
 ```c
 double cos(double x)
@@ -94,7 +94,7 @@ int main(void) {
 }
 ```
 
-#### tan
+### tan
 
 ```c
 double tan(double x)
@@ -115,7 +115,7 @@ int main(void) {
 }
 ```
 
-#### asin
+### asin
 
 ```c
 double asin(double x)
@@ -136,7 +136,7 @@ int main(void) {
 }
 ```
 
-#### acos
+### acos
 
 ```c
 double acos(double x)
@@ -157,7 +157,7 @@ int main(void) {
 }
 ```
 
-#### atan
+### atan
 
 ```c
 double atan(double x)
@@ -178,7 +178,7 @@ int main(void) {
 }
 ```
 
-#### atan2
+### atan2
 
 ```c
 double atan2(double y, double x)
@@ -204,7 +204,7 @@ int main(void) {
 
 ### Exponential & Logarithmic
 
-#### exp
+### exp
 
 ```c
 double exp(double x)
@@ -226,7 +226,7 @@ int main(void) {
 }
 ```
 
-#### log
+### log
 
 ```c
 double log(double x)
@@ -248,7 +248,7 @@ int main(void) {
 }
 ```
 
-#### log10
+### log10
 
 ```c
 double log10(double x)
@@ -270,7 +270,7 @@ int main(void) {
 }
 ```
 
-#### pow
+### pow
 
 ```c
 double pow(double x, double y)
@@ -292,7 +292,7 @@ int main(void) {
 }
 ```
 
-#### sqrt
+### sqrt
 
 ```c
 double sqrt(double x)
@@ -314,7 +314,7 @@ int main(void) {
 }
 ```
 
-#### cbrt
+### cbrt
 
 ```c
 double cbrt(double x)
@@ -340,7 +340,7 @@ int main(void) {
 
 ### Rounding & Remainder
 
-#### ceil
+### ceil
 
 ```c
 double ceil(double x)
@@ -361,7 +361,7 @@ int main(void) {
 }
 ```
 
-#### floor
+### floor
 
 ```c
 double floor(double x)
@@ -382,7 +382,7 @@ int main(void) {
 }
 ```
 
-#### round
+### round
 
 ```c
 double round(double x)
@@ -403,7 +403,7 @@ int main(void) {
 }
 ```
 
-#### trunc
+### trunc
 
 ```c
 double trunc(double x)
@@ -424,7 +424,7 @@ int main(void) {
 }
 ```
 
-#### fmod
+### fmod
 
 ```c
 double fmod(double x, double y)
@@ -446,7 +446,7 @@ int main(void) {
 }
 ```
 
-#### remainder
+### remainder
 
 ```c
 double remainder(double x, double y)
@@ -471,7 +471,7 @@ int main(void) {
 
 ### Absolute Value & Min/Max
 
-#### fabs
+### fabs
 
 ```c
 double fabs(double x)
@@ -492,7 +492,7 @@ int main(void) {
 }
 ```
 
-#### fmax
+### fmax
 
 ```c
 double fmax(double x, double y)
@@ -513,7 +513,7 @@ int main(void) {
 }
 ```
 
-#### fmin
+### fmin
 
 ```c
 double fmin(double x, double y)
@@ -538,7 +538,7 @@ int main(void) {
 
 ### Hyperbolic Functions
 
-#### sinh
+### sinh
 
 ```c
 double sinh(double x)
@@ -559,7 +559,7 @@ int main(void) {
 }
 ```
 
-#### cosh
+### cosh
 
 ```c
 double cosh(double x)
@@ -580,7 +580,7 @@ int main(void) {
 }
 ```
 
-#### tanh
+### tanh
 
 ```c
 double tanh(double x)
@@ -601,7 +601,7 @@ int main(void) {
 }
 ```
 
-#### asinh
+### asinh
 
 ```c
 double asinh(double x)
@@ -622,7 +622,7 @@ int main(void) {
 }
 ```
 
-#### acosh
+### acosh
 
 ```c
 double acosh(double x)
@@ -643,7 +643,7 @@ int main(void) {
 }
 ```
 
-#### atanh
+### atanh
 
 ```c
 double atanh(double x)

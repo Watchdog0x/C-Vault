@@ -66,7 +66,7 @@ Macro representing the number of clock ticks per second, used to convert `clock(
 
 ### Time Manipulation
 
-#### time
+### time
 
 ```c
 time_t time(time_t *timer)
@@ -88,7 +88,7 @@ int main(void) {
 }
 ```
 
-#### difftime
+### difftime
 
 ```c
 double difftime(time_t time1, time_t time0)
@@ -114,7 +114,7 @@ int main(void) {
 }
 ```
 
-#### mktime
+### mktime
 
 ```c
 time_t mktime(struct tm *timeptr)
@@ -143,7 +143,7 @@ int main(void) {
 }
 ```
 
-#### clock
+### clock
 
 ```c
 clock_t clock(void)
@@ -174,7 +174,7 @@ int main(void) {
 
 ### Conversion Functions
 
-#### localtime
+### localtime
 
 ```c
 struct tm *localtime(const time_t *timer)
@@ -199,7 +199,7 @@ int main(void) {
 }
 ```
 
-#### gmtime
+### gmtime
 
 ```c
 struct tm *gmtime(const time_t *timer)
@@ -223,7 +223,7 @@ int main(void) {
 }
 ```
 
-#### strftime
+### strftime
 
 ```c
 size_t strftime(char *s, size_t max, const char *format, const struct tm *tm)
@@ -264,7 +264,7 @@ int main(void) {
 }
 ```
 
-#### ctime
+### ctime
 
 ```c
 char *ctime(const time_t *timer)
@@ -287,7 +287,7 @@ int main(void) {
 }
 ```
 
-#### asctime
+### asctime
 
 ```c
 char *asctime(const struct tm *timeptr)

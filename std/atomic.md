@@ -62,7 +62,7 @@ Enumerated type identifying memory ordering constraints:
 
 ### Atomic Operations
 
-#### atomic_store
+### atomic_store
 
 ```c
 void atomic_store(volatile A *object, M desired)
@@ -70,7 +70,7 @@ void atomic_store(volatile A *object, M desired)
 
 Atomically replaces the value of `object` with `desired`.
 
-#### atomic_load
+### atomic_load
 
 ```c
 C atomic_load(volatile A *object)
@@ -78,7 +78,7 @@ C atomic_load(volatile A *object)
 
 Atomically returns the value of `object`.
 
-#### atomic_fetch_add
+### atomic_fetch_add
 
 ```c
 C atomic_fetch_add(volatile A *object, M operand)
@@ -98,7 +98,7 @@ int main(void) {
 }
 ```
 
-#### atomic_fetch_sub
+### atomic_fetch_sub
 
 ```c
 C atomic_fetch_sub(volatile A *object, M operand)
@@ -119,7 +119,7 @@ int main(void) {
 }
 ```
 
-#### atomic_exchange
+### atomic_exchange
 
 ```c
 C atomic_exchange(volatile A *object, M desired)
@@ -141,7 +141,7 @@ int main(void) {
 }
 ```
 
-#### atomic_compare_exchange_strong
+### atomic_compare_exchange_strong
 
 ```c
 _Bool atomic_compare_exchange_strong(volatile A *object, C *expected, M desired)
@@ -153,7 +153,7 @@ Atomically compares `object` with `*expected`, and if equal, replaces with `desi
 
 ### Synchronization
 
-#### atomic_thread_fence
+### atomic_thread_fence
 
 ```c
 void atomic_thread_fence(memory_order order)
@@ -173,7 +173,7 @@ int main(void) {
 }
 ```
 
-#### atomic_signal_fence
+### atomic_signal_fence
 
 ```c
 void atomic_signal_fence(memory_order order)

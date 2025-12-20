@@ -51,7 +51,7 @@ Return values for thread functions.
 
 ### Thread Control
 
-#### thrd_create
+### thrd_create
 
 ```c
 int thrd_create(thrd_t *thr, thrd_start_t func, void *arg)
@@ -75,7 +75,7 @@ int main(void) {
 }
 ```
 
-#### thrd_join
+### thrd_join
 
 ```c
 int thrd_join(thrd_t thr, int *res)
@@ -104,7 +104,7 @@ int main(void) {
 }
 ```
 
-#### thrd_exit
+### thrd_exit
 
 ```c
 _Noreturn void thrd_exit(int res)
@@ -123,7 +123,7 @@ int worker(void *arg) {
 }
 ```
 
-#### thrd_detach
+### thrd_detach
 
 ```c
 int thrd_detach(thrd_t thr)
@@ -146,7 +146,7 @@ int main(void) {
 }
 ```
 
-#### thrd_current
+### thrd_current
 
 ```c
 thrd_t thrd_current(void)
@@ -166,7 +166,7 @@ int main(void) {
 }
 ```
 
-#### thrd_equal
+### thrd_equal
 
 ```c
 int thrd_equal(thrd_t thr0, thrd_t thr1)
@@ -189,7 +189,7 @@ int main(void) {
 }
 ```
 
-#### thrd_yield
+### thrd_yield
 
 ```c
 void thrd_yield(void)
@@ -211,7 +211,7 @@ int worker(void *arg) {
 }
 ```
 
-#### thrd_sleep
+### thrd_sleep
 
 ```c
 int thrd_sleep(const struct timespec *duration, struct timespec *remaining)
@@ -236,7 +236,7 @@ int main(void) {
 
 ### Synchronization
 
-#### mtx_init
+### mtx_init
 
 ```c
 int mtx_init(mtx_t *mtx, int type)
@@ -244,7 +244,7 @@ int mtx_init(mtx_t *mtx, int type)
 
 Initializes a mutex with the given `type` (e.g., `mtx_plain`).
 
-#### mtx_destroy
+### mtx_destroy
 
 ```c
 void mtx_destroy(mtx_t *mtx)
@@ -266,7 +266,7 @@ int main(void) {
 }
 ```
 
-#### mtx_trylock
+### mtx_trylock
 
 ```c
 int mtx_trylock(mtx_t *mtx)
@@ -291,7 +291,7 @@ int main(void) {
 }
 ```
 
-#### mtx_lock
+### mtx_lock
 
 ```c
 int mtx_lock(mtx_t *mtx)
@@ -324,7 +324,7 @@ int main(void) {
 }
 ```
 
-#### mtx_timedlock
+### mtx_timedlock
 
 ```c
 int mtx_timedlock(mtx_t *restrict mtx, const struct timespec *restrict ts)
@@ -332,7 +332,7 @@ int mtx_timedlock(mtx_t *restrict mtx, const struct timespec *restrict ts)
 
 Tries to lock a timed mutex, blocking until the timeout.
 
-#### mtx_unlock
+### mtx_unlock
 
 ```c
 int mtx_unlock(mtx_t *mtx)
@@ -340,7 +340,7 @@ int mtx_unlock(mtx_t *mtx)
 
 Unlocks a mutex.
 
-#### cnd_init
+### cnd_init
 
 ```c
 int cnd_init(cnd_t *cond)
@@ -348,7 +348,7 @@ int cnd_init(cnd_t *cond)
 
 Initializes a condition variable.
 
-#### cnd_destroy
+### cnd_destroy
 
 ```c
 void cnd_destroy(cnd_t *cond)
@@ -356,7 +356,7 @@ void cnd_destroy(cnd_t *cond)
 
 Destroys a condition variable.
 
-#### cnd_wait
+### cnd_wait
 
 ```c
 int cnd_wait(cnd_t *cond, mtx_t *mtx)
@@ -383,7 +383,7 @@ int main(void) {
 }
 ```
 
-#### cnd_timedwait
+### cnd_timedwait
 
 ```c
 int cnd_timedwait(cnd_t *restrict cond, mtx_t *restrict mtx, const struct timespec *restrict ts)
@@ -391,7 +391,7 @@ int cnd_timedwait(cnd_t *restrict cond, mtx_t *restrict mtx, const struct timesp
 
 Waits on a condition variable with a timeout.
 
-#### cnd_broadcast
+### cnd_broadcast
 
 ```c
 int cnd_broadcast(cnd_t *cond)
@@ -399,7 +399,7 @@ int cnd_broadcast(cnd_t *cond)
 
 Signals all waiting threads on the condition variable.
 
-#### cnd_signal
+### cnd_signal
 
 ```c
 int cnd_signal(cnd_t *cond)

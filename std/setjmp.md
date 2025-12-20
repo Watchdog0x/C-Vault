@@ -26,7 +26,7 @@ An array type suitable for holding the information needed to restore a calling e
 
 ### Control Flow
 
-#### setjmp
+### setjmp
 
 ```c
 int setjmp(jmp_buf env)
@@ -34,7 +34,7 @@ int setjmp(jmp_buf env)
 
 Saves the current stack environment in `env`. Returns `0` when called directly; returns a non-zero value when returning via `longjmp`.
 
-#### longjmp
+### longjmp
 
 ```c
 void longjmp(jmp_buf env, int val)

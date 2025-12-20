@@ -34,7 +34,7 @@ The imaginary unit `i`.
 
 ## Functions
 
-#### creal
+### creal
 
 ```c
 double creal(double complex z)
@@ -42,7 +42,7 @@ double creal(double complex z)
 
 Extracts the real component.
 
-#### cimag
+### cimag
 
 ```c
 double cimag(double complex z)
@@ -63,7 +63,7 @@ int main(void) {
 }
 ```
 
-#### cabs
+### cabs
 
 ```c
 double cabs(double complex z)
@@ -82,7 +82,7 @@ int main(void) {
 }
 ```
 
-#### carg
+### carg
 
 ```c
 double carg(double complex z)
@@ -103,7 +103,7 @@ int main(void) {
 }
 ```
 
-#### conj
+### conj
 
 ```c
 double complex conj(double complex z)
@@ -125,7 +125,7 @@ int main(void) {
 }
 ```
 
-#### cexp
+### cexp
 
 ```c
 double complex cexp(double complex z)
@@ -145,7 +145,7 @@ int main(void) {
 }
 ```
 
-#### clog
+### clog
 
 ```c
 double complex clog(double complex z)
@@ -165,7 +165,7 @@ int main(void) {
 }
 ```
 
-#### csqrt
+### csqrt
 
 ```c
 double complex csqrt(double complex z)
@@ -185,7 +185,7 @@ int main(void) {
 }
 ```
 
-#### csin
+### csin
 
 ```c
 double complex csin(double complex z)
@@ -205,7 +205,7 @@ int main(void) {
 }
 ```
 
-#### ccos
+### ccos
 
 ```c
 double complex ccos(double complex z)
@@ -225,7 +225,7 @@ int main(void) {
 }
 ```
 
-#### ctan
+### ctan
 
 ```c
 double complex ctan(double complex z)

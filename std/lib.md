@@ -102,7 +102,7 @@ Maximum number of bytes in a multibyte character for the current locale.
 
 ### Memory Management
 
-#### malloc
+### malloc
 
 ```c
 void *malloc(size_t size)
@@ -124,7 +124,7 @@ int main(void) {
 }
 ```
 
-#### calloc
+### calloc
 
 ```c
 void *calloc(size_t nmemb, size_t size)
@@ -150,7 +150,7 @@ int main(void) {
 }
 ```
 
-#### realloc
+### realloc
 
 ```c
 void *realloc(void *ptr, size_t size)
@@ -179,7 +179,7 @@ int main(void) {
 }
 ```
 
-#### free
+### free
 
 ```c
 void free(void *ptr)
@@ -207,7 +207,7 @@ int main(void) {
 
 ### Process Control
 
-#### exit
+### exit
 
 ```c
 void exit(int status)
@@ -225,7 +225,7 @@ int main(void) {
 }
 ```
 
-#### abort
+### abort
 
 ```c
 void abort(void)
@@ -244,7 +244,7 @@ int main(void) {
 }
 ```
 
-#### atexit
+### atexit
 
 ```c
 int atexit(void (*func)(void))
@@ -271,7 +271,7 @@ int main(void) {
 }
 ```
 
-#### _Exit
+### _Exit
 
 ```c
 void _Exit(int status)
@@ -289,7 +289,7 @@ int main(void) {
 }
 ```
 
-#### quick_exit
+### quick_exit
 
 ```c
 void quick_exit(int status)
@@ -312,7 +312,7 @@ int main(void) {
 }
 ```
 
-#### at_quick_exit
+### at_quick_exit
 
 ```c
 int at_quick_exit(void (*func)(void))
@@ -339,7 +339,7 @@ int main(void) {
 
 ### Numeric Conversion
 
-#### atoi
+### atoi
 
 ```c
 int atoi(const char *nptr)
@@ -361,7 +361,7 @@ int main(void) {
 }
 ```
 
-#### atol
+### atol
 
 ```c
 long atol(const char *nptr)
@@ -383,7 +383,7 @@ int main(void) {
 }
 ```
 
-#### atof
+### atof
 
 ```c
 double atof(const char *nptr)
@@ -405,7 +405,7 @@ int main(void) {
 }
 ```
 
-#### strtol
+### strtol
 
 ```c
 long strtol(const char *nptr, char **endptr, int base)
@@ -428,7 +428,7 @@ int main(void) {
 }
 ```
 
-#### strtod
+### strtod
 
 ```c
 double strtod(const char *nptr, char **endptr)
@@ -451,7 +451,7 @@ int main(void) {
 }
 ```
 
-#### strtoll
+### strtoll
 
 ```c
 long long strtoll(const char *nptr, char **endptr, int base)
@@ -474,7 +474,7 @@ int main(void) {
 }
 ```
 
-#### strtoull
+### strtoull
 
 ```c
 unsigned long long strtoull(const char *nptr, char **endptr, int base)
@@ -497,7 +497,7 @@ int main(void) {
 }
 ```
 
-#### strtold
+### strtold
 
 ```c
 long double strtold(const char *nptr, char **endptr)
@@ -524,7 +524,7 @@ int main(void) {
 
 ### Pseudo-Random Numbers
 
-#### rand
+### rand
 
 ```c
 int rand(void)
@@ -545,7 +545,7 @@ int main(void) {
 }
 ```
 
-#### srand
+### srand
 
 ```c
 void srand(unsigned int seed)
@@ -572,7 +572,7 @@ int main(void) {
 
 ### Searching & Sorting
 
-#### qsort
+### qsort
 
 ```c
 void qsort(void *base, size_t nmemb, size_t size, int (*compar)(const void *, const void *))
@@ -600,7 +600,7 @@ int main(void) {
 }
 ```
 
-#### bsearch
+### bsearch
 
 ```c
 void *bsearch(const void *key, const void *base, size_t nmemb, size_t size, int (*compar)(const void *, const void *))
@@ -633,7 +633,7 @@ int main(void) {
 
 ### Integer Arithmetic
 
-#### abs
+### abs
 
 ```c
 int abs(int x)
@@ -653,7 +653,7 @@ int main(void) {
 }
 ```
 
-#### labs
+### labs
 
 ```c
 long labs(long x)
@@ -673,7 +673,7 @@ int main(void) {
 }
 ```
 
-#### llabs
+### llabs
 
 ```c
 long long llabs(long long x)
@@ -693,7 +693,7 @@ int main(void) {
 }
 ```
 
-#### div
+### div
 
 ```c
 div_t div(int numer, int denom)
@@ -714,7 +714,7 @@ int main(void) {
 }
 ```
 
-#### ldiv
+### ldiv
 
 ```c
 ldiv_t ldiv(long numer, long denom)
@@ -735,7 +735,7 @@ int main(void) {
 }
 ```
 
-#### lldiv
+### lldiv
 
 ```c
 lldiv_t lldiv(long long numer, long long denom)
@@ -760,7 +760,7 @@ int main(void) {
 
 ### Environment
 
-#### system
+### system
 
 ```c
 int system(const char *command)
@@ -779,7 +779,7 @@ int main(void) {
 }
 ```
 
-#### getenv
+### getenv
 
 ```c
 char *getenv(const char *name)
@@ -806,7 +806,7 @@ int main(void) {
 
 ### Multibyte Characters
 
-#### mblen
+### mblen
 
 ```c
 int mblen(const char *s, size_t n)
@@ -828,7 +828,7 @@ int main(void) {
 }
 ```
 
-#### mbtowc
+### mbtowc
 
 ```c
 int mbtowc(wchar_t *pwc, const char *s, size_t n)
@@ -852,7 +852,7 @@ int main(void) {
 }
 ```
 
-#### wctomb
+### wctomb
 
 ```c
 int wctomb(char *s, wchar_t wc)
@@ -876,7 +876,7 @@ int main(void) {
 }
 ```
 
-#### mbstowcs
+### mbstowcs
 
 ```c
 size_t mbstowcs(wchar_t *pwcs, const char *s, size_t n)
@@ -900,7 +900,7 @@ int main(void) {
 }
 ```
 
-#### wcstombs
+### wcstombs
 
 ```c
 size_t wcstombs(char *s, const wchar_t *pwcs, size_t n)

@@ -44,7 +44,7 @@ int main(void) {
 
 ### Runtime Diagnostics
 
-#### assert
+### assert
 
 ```c
 #define assert(expression)

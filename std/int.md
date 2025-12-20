@@ -25,7 +25,7 @@ The `stdint.h` header declares sets of integer types having specified widths and
 
 These types are provided only if the implementation supports them.
 
-#### Exact Width
+### Exact Width
 
 - `int8_t`, `int16_t`, `int32_t`, `int64_t`
 - `uint8_t`, `uint16_t`, `uint32_t`, `uint64_t`
@@ -45,13 +45,13 @@ int main(void) {
 
 ### Pointer-sized Integer Types
 
-#### intptr_t, uintptr_t
+### intptr_t, uintptr_t
 
 Signed and unsigned integer types capable of holding a pointer to void. Any valid pointer to void can be converted to these types and then back to a pointer to void, and the result will compare equal to the original pointer.
 
 ### Maximum-width Integer Types
 
-#### intmax_t, uintmax_t
+### intmax_t, uintmax_t
 
 Signed and unsigned integer types that can represent any value of any other integer type supported by the implementation.
 

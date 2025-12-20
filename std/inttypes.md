@@ -121,7 +121,7 @@ Maximum-width unsigned integer type.
 
 ### Numeric Conversion
 
-#### strtoimax
+### strtoimax
 
 ```c
 intmax_t strtoimax(const char *nptr, char **endptr, int base)
@@ -129,7 +129,7 @@ intmax_t strtoimax(const char *nptr, char **endptr, int base)
 
 Equivalent to `strtol`, but returns `intmax_t`.
 
-#### strtoumax
+### strtoumax
 
 ```c
 uintmax_t strtoumax(const char *nptr, char **endptr, int base)

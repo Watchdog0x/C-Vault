@@ -26,7 +26,7 @@ An opaque type used to hold the information needed by the macros `va_start`, `va
 
 ### Argument List Management
 
-#### va_start
+### va_start
 
 ```c
 void va_start(va_list ap, last)
@@ -34,7 +34,7 @@ void va_start(va_list ap, last)
 
 Initializes `ap` for use by `va_arg` and `va_end`. `last` is the name of the last fixed parameter.
 
-#### va_arg
+### va_arg
 
 ```c
 type va_arg(va_list ap, type)
@@ -42,7 +42,7 @@ type va_arg(va_list ap, type)
 
 Expands to the next argument in the list with the specified `type`.
 
-#### va_end
+### va_end
 
 ```c
 void va_end(va_list ap)

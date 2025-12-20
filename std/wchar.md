@@ -42,7 +42,7 @@ An object type used to hold the conversion state information for a multibyte cha
 
 ### Wide String Operations
 
-#### wcscpy
+### wcscpy
 
 ```c
 wchar_t *wcscpy(wchar_t *dest, const wchar_t *src)
@@ -63,7 +63,7 @@ int main(void) {
 }
 ```
 
-#### wcscat
+### wcscat
 
 ```c
 wchar_t *wcscat(wchar_t *dest, const wchar_t *src)
@@ -84,7 +84,7 @@ int main(void) {
 }
 ```
 
-#### wcslen
+### wcslen
 
 ```c
 size_t wcslen(const wchar_t *s)
@@ -104,7 +104,7 @@ int main(void) {
 }
 ```
 
-#### wcscmp
+### wcscmp
 
 ```c
 int wcscmp(const wchar_t *s1, const wchar_t *s2)
@@ -125,7 +125,7 @@ int main(void) {
 }
 ```
 
-#### wcschr
+### wcschr
 
 ```c
 wchar_t *wcschr(const wchar_t *s, wchar_t c)
@@ -147,7 +147,7 @@ int main(void) {
 
 ### Wide Input/Output
 
-#### wprintf
+### wprintf
 
 ```c
 int wprintf(const wchar_t *format, ...)
@@ -166,7 +166,7 @@ int main(void) {
 }
 ```
 
-#### fwprintf
+### fwprintf
 
 ```c
 int fwprintf(FILE *restrict stream, const wchar_t *restrict format, ...)
@@ -174,7 +174,7 @@ int fwprintf(FILE *restrict stream, const wchar_t *restrict format, ...)
 
 Wide-character output to a file stream.
 
-#### swprintf
+### swprintf
 
 ```c
 int swprintf(wchar_t *restrict s, size_t n, const wchar_t *restrict format, ...)
@@ -184,7 +184,7 @@ Wide-character output to a wide string.
 
 ### Conversion
 
-#### wcstombs
+### wcstombs
 
 ```c
 size_t wcstombs(char *restrict s, const wchar_t *restrict pwcs, size_t n)
@@ -205,7 +205,7 @@ int main(void) {
 }
 ```
 
-#### mbstowcs
+### mbstowcs
 
 ```c
 size_t mbstowcs(wchar_t *restrict pwcs, const char *restrict s, size_t n)

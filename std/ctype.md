@@ -20,7 +20,7 @@ The `ctype.h` header declares several functions useful for testing and mapping c
 
 ### Classification Functions
 
-#### isalpha
+### isalpha
 
 ```c
 int isalpha(int c)
@@ -47,7 +47,7 @@ int main(void) {
 }
 ```
 
-#### isdigit
+### isdigit
 
 ```c
 int isdigit(int c)
@@ -74,7 +74,7 @@ int main(void) {
 }
 ```
 
-#### isalnum
+### isalnum
 
 ```c
 int isalnum(int c)
@@ -102,7 +102,7 @@ int main(void) {
 }
 ```
 
-#### isspace
+### isspace
 
 ```c
 int isspace(int c)
@@ -131,7 +131,7 @@ int main(void) {
 }
 ```
 
-#### isupper
+### isupper
 
 ```c
 int isupper(int c)
@@ -154,7 +154,7 @@ int main(void) {
 }
 ```
 
-#### islower
+### islower
 
 ```c
 int islower(int c)
@@ -181,7 +181,7 @@ int main(void) {
 
 ### Transformation Functions
 
-#### tolower
+### tolower
 
 ```c
 int tolower(int c)
@@ -206,7 +206,7 @@ int main(void) {
 }
 ```
 
-#### toupper
+### toupper
 
 ```c
 int toupper(int c)
@@ -235,7 +235,7 @@ int main(void) {
 
 ### Other Check Functions
 
-#### ispunct
+### ispunct
 
 ```c
 int ispunct(int c)
@@ -264,7 +264,7 @@ int main(void) {
 }
 ```
 
-#### iscntrl
+### iscntrl
 
 ```c
 int iscntrl(int c)
@@ -291,7 +291,7 @@ int main(void) {
 }
 ```
 
-#### isxdigit
+### isxdigit
 
 ```c
 int isxdigit(int c)
@@ -319,7 +319,7 @@ int main(void) {
 }
 ```
 
-#### isprint
+### isprint
 
 ```c
 int isprint(int c)
@@ -342,7 +342,7 @@ int main(void) {
 }
 ```
 
-#### isgraph
+### isgraph
 
 ```c
 int isgraph(int c)

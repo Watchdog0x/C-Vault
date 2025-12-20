@@ -28,7 +28,7 @@ An integer type that can be accessed as an atomic entity, even in the presence o
 
 ### Signal Actions
 
-#### SIG_DFL
+### SIG_DFL
 
 ```c
 #define SIG_DFL /* implementation-defined */
@@ -36,7 +36,7 @@ An integer type that can be accessed as an atomic entity, even in the presence o
 
 Requests the default signal handling action.
 
-#### SIG_IGN
+### SIG_IGN
 
 ```c
 #define SIG_IGN /* implementation-defined */
@@ -50,7 +50,7 @@ Requests that the signal be ignored.
 
 ### Signal Handling Functions
 
-#### signal
+### signal
 
 ```c
 void (*signal(int sig, void (*func)(int)))(int)
@@ -78,7 +78,7 @@ int main(void) {
 }
 ```
 
-#### raise
+### raise
 
 ```c
 int raise(int sig)
@@ -107,7 +107,7 @@ int main(void) {
 
 ### Standard Signals
 
-#### SIGABRT
+### SIGABRT
 
 ```c
 #define SIGABRT /* implementation-defined */
@@ -115,7 +115,7 @@ int main(void) {
 
 Abnormal termination signal, such as initiated by `abort()`.
 
-#### SIGFPE
+### SIGFPE
 
 ```c
 #define SIGFPE /* implementation-defined */
@@ -123,7 +123,7 @@ Abnormal termination signal, such as initiated by `abort()`.
 
 Erroneous arithmetic operation (e.g., division by zero).
 
-#### SIGILL
+### SIGILL
 
 ```c
 #define SIGILL /* implementation-defined */
@@ -131,7 +131,7 @@ Erroneous arithmetic operation (e.g., division by zero).
 
 Invalid executable code.
 
-#### SIGINT
+### SIGINT
 
 ```c
 #define SIGINT /* implementation-defined */
@@ -139,7 +139,7 @@ Invalid executable code.
 
 Interactive attention signal (usually Ctrl+C).
 
-#### SIGSEGV
+### SIGSEGV
 
 ```c
 #define SIGSEGV /* implementation-defined */
@@ -147,7 +147,7 @@ Interactive attention signal (usually Ctrl+C).
 
 Invalid access to storage (segmentation violation).
 
-#### SIGTERM
+### SIGTERM
 
 ```c
 #define SIGTERM /* implementation-defined */

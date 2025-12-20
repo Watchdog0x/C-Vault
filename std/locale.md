@@ -45,7 +45,7 @@ int main(void) {
 
 ### Locale Control
 
-#### setlocale
+### setlocale
 
 ```c
 char *setlocale(int category, const char *locale)
@@ -70,7 +70,7 @@ int main(void) {
 
 ### Formatting Info
 
-#### localeconv
+### localeconv
 
 ```c
 struct lconv *localeconv(void)
