@@ -250,16 +250,27 @@ double log(double x)
 
 Computes the natural logarithm (base e) of `x`.
 
+**Returns:** The natural logarithm of `x`. If `x` is negative, a domain error occurs (`errno = EDOM`, returns `NAN`). If `x` is zero, a pole error occurs (`errno = ERANGE`, returns `-HUGE_VAL`).
+
 <details><summary>Example</summary>
 
 ```c
 #include <math.h>
 #include <stdio.h>
+#include <errno.h>
+#include <string.h>
 
 int main(void) {
-    double x = 2.718282;
-    printf("ln(e) = %f\n", log(x)); // Output: ln(e) ≈ 1.000000
-    printf("ln(10) = %f\n", log(10.0)); // Output: ln(10) ≈ 2.302585
+    double x = -1.0;
+    
+    errno = 0;
+    double result = log(x);
+    
+    if (errno != 0) {
+        printf("log(%f) failed: %s\n", x, strerror(errno));
+    } else {
+        printf("log(%f) = %f\n", x, result);
+    }
     return 0;
 }
 ```
@@ -322,16 +333,26 @@ double sqrt(double x)
 
 Computes the square root of `x`.
 
+**Returns:** The square root of `x`. If `x` is negative, a domain error occurs (`errno = EDOM`, returns `NAN`).
+
 <details><summary>Example</summary>
 
 ```c
 #include <math.h>
 #include <stdio.h>
+#include <errno.h>
 
 int main(void) {
-    double x = 16.0;
-    printf("sqrt(16) = %f\n", sqrt(x)); // Output: sqrt(16) = 4.000000
-    printf("sqrt(2) = %f\n", sqrt(2.0)); // Output: sqrt(2) ≈ 1.414214
+    double val = -25.0;
+    
+    errno = 0;
+    double result = sqrt(val);
+    
+    if (errno == EDOM) {
+        perror("Domain error in sqrt");
+    } else {
+        printf("sqrt(%f) = %f\n", val, result);
+    }
     return 0;
 }
 ```

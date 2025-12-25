@@ -74,6 +74,8 @@ time_t time(time_t *timer)
 
 Returns the current system calendar time. If `timer` is not NULL, the return value is also stored in `*timer`.
 
+**Returns:** The current `time_t` value. Returns `(time_t)-1` if the time cannot be determined.
+
 <details><summary>Example</summary>
 
 ```c
@@ -82,8 +84,13 @@ Returns the current system calendar time. If `timer` is not NULL, the return val
 
 int main(void) {
     time_t now = time(NULL);
+    
+    if (now == (time_t)-1) {
+        perror("Failed to get time");
+        return 1;
+    }
+    
     printf("Seconds since Epoch: %ld\n", (long)now);
-    // Output: Seconds since Epoch: 1703082000 (example)
     return 0;
 }
 ```
@@ -126,6 +133,8 @@ time_t mktime(struct tm *timeptr)
 
 Converts a `struct tm` to a `time_t` value. Useful for creating custom dates.
 
+**Returns:** The `time_t` value, or `(time_t)-1` if the time cannot be represented.
+
 <details><summary>Example</summary>
 
 ```c
@@ -140,9 +149,16 @@ int main(void) {
     custom_time.tm_hour = 12;
     custom_time.tm_min = 30;
     custom_time.tm_sec = 0;
+    // tm_isdst = -1 lets mktime determine DST automatically
+    custom_time.tm_isdst = -1;
     
     time_t t = mktime(&custom_time);
-    printf("Custom time: %ld\n", (long)t);
+    
+    if (t == (time_t)-1) {
+        printf("Error: Date out of range.\n");
+    } else {
+        printf("Custom time: %ld\n", (long)t);
+    }
     return 0;
 }
 ```
@@ -190,6 +206,11 @@ struct tm *localtime(const time_t *timer)
 
 Converts a calendar time to a `struct tm` representing local time (adjusted for timezone).
 
+**Returns:** Pointer to a static `struct tm`, or `NULL` on error.
+
+> [!WARNING]
+> **UNSAFE**: Returns pointer to static buffer. Not thread-safe. C11 recommends `localtime_s`.
+
 <details><summary>Example</summary>
 
 ```c
@@ -199,10 +220,15 @@ Converts a calendar time to a `struct tm` representing local time (adjusted for 
 int main(void) {
     time_t now = time(NULL);
     struct tm *lt = localtime(&now);
+    
+    if (lt == NULL) {
+        perror("localtime failed");
+        return 1;
+    }
+    
     printf("Local time: %d-%02d-%02d %02d:%02d:%02d\n",
            lt->tm_year + 1900, lt->tm_mon + 1, lt->tm_mday,
            lt->tm_hour, lt->tm_min, lt->tm_sec);
-    // Output: Local time: 2024-12-20 15:30:45 (example)
     return 0;
 }
 ```
@@ -216,6 +242,9 @@ struct tm *gmtime(const time_t *timer)
 ```
 
 Converts a calendar time to a `struct tm` representing UTC/GMT time.
+
+> [!WARNING]
+> **UNSAFE**: Returns pointer to static buffer. Not thread-safe. C11 recommends `gmtime_s`.
 
 <details><summary>Example</summary>
 
@@ -286,6 +315,9 @@ char *ctime(const time_t *timer)
 
 Converts a calendar time to a string in a fixed format. Equivalent to `asctime(localtime(timer))`.
 
+> [!WARNING]
+> **UNSAFE**: Returns pointer to static buffer. Not thread-safe. C11 recommends `ctime_s`.
+
 <details><summary>Example</summary>
 
 ```c
@@ -310,6 +342,9 @@ char *asctime(const struct tm *timeptr)
 ```
 
 Converts a `struct tm` to a string in a fixed format.
+
+> [!WARNING]
+> **UNSAFE**: Returns pointer to static buffer. Not thread-safe. C11 recommends `asctime_s`.
 
 <details><summary>Example</summary>
 

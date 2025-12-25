@@ -57,6 +57,8 @@ Sets or queries the program's current locale.
 - `category`: `LC_ALL`, `LC_COLLATE`, `LC_CTYPE`, `LC_MONETARY`, `LC_NUMERIC`, `LC_TIME`.
 - `locale`: e.g., `"C"` (default), `""` (system default), `"en_US.UTF-8"`.
 
+**Returns:** A string pointer to the locale name associated with the category, or `NULL` if the request cannot be honored.
+
 <details><summary>Example</summary>
 
 ```c
@@ -64,8 +66,15 @@ Sets or queries the program's current locale.
 #include <stdio.h>
 
 int main(void) {
-    setlocale(LC_ALL, ""); // Use system default locale
-    printf("Current locale: %s\n", setlocale(LC_ALL, NULL));
+    // Attempt to set to system default
+    char *res = setlocale(LC_ALL, "");
+    
+    if (res == NULL) {
+        fprintf(stderr, "Failed to set system locale. Fallback to C.\n");
+        // setlocale failure usually leaves locale unchanged (C)
+    } else {
+        printf("Locale set to: %s\n", res);
+    }
     return 0;
 }
 ```

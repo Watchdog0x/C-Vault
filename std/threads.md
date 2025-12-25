@@ -19,13 +19,28 @@ The `threads.h` header (C11) provides a standard facility for multithreading.
 
 ### thrd_t
 
+```c
+// Opaque identifier (implementation defined, e.g., pthread_t)
+typedef /* unspecified */ thrd_t;
+```
+
 An opaque type representing a thread.
 
 ### mtx_t
 
+```c
+// Opaque mutex structure
+typedef /* unspecified */ mtx_t;
+```
+
 An opaque type representing a mutex.
 
 ### cnd_t
+
+```c
+// Opaque condition variable structure
+typedef /* unspecified */ cnd_t;
+```
 
 An opaque type representing a condition variable.
 
@@ -51,26 +66,30 @@ Return values for thread functions.
 
 ### Thread Control
 
-### thrd_create
+Starts a new thread.
 
-```c
-int thrd_create(thrd_t *thr, thrd_start_t func, void *arg)
-```
-
-Starts a new thread. Returns `thrd_success` on success.
+**Returns:** `thrd_success` on success, `thrd_nomem` if out of memory, or `thrd_error` on other errors.
 
 <details><summary>Example</summary>
 
 ```c
 #include <threads.h>
+#include <stdio.h>
 
-int run(void *arg) { return 0; }
+int run(void *arg) { 
+    return 0; 
+}
 
 int main(void) {
     thrd_t t;
-    if (thrd_create(&t, run, NULL) == thrd_success) {
-        thrd_join(t, NULL);
+    int res = thrd_create(&t, run, NULL);
+    
+    if (res != thrd_success) {
+        fprintf(stderr, "Failed to create thread (Error: %d)\n", res);
+        return 1;
     }
+    
+    thrd_join(t, NULL);
     return 0;
 }
 ```
@@ -311,34 +330,38 @@ int main(void) {
 
 </details>
 
-### mtx_lock
+Locks a mutex to protect a critical section. Blocks if the mutex is already locked.
 
-```c
-int mtx_lock(mtx_t *mtx)
-```
-
-Locks a mutex to protect a critical section.
+**Returns:** `thrd_success` on success, `thrd_error` on error.
 
 <details><summary>Example</summary>
 
 ```c
 #include <threads.h>
+#include <stdio.h>
 
 mtx_t mtx;
 int shared = 0;
 
 int increment(void *arg) {
-    mtx_lock(&mtx);
-    shared++;
-    mtx_unlock(&mtx);
+    if (mtx_lock(&mtx) == thrd_success) {
+        shared++;
+        mtx_unlock(&mtx);
+    } else {
+        // Handle lock failure (rare for plain mutexes)
+    }
     return 0;
 }
 
 int main(void) {
-    mtx_init(&mtx, mtx_plain);
+    if (mtx_init(&mtx, mtx_plain) != thrd_success) {
+        return 1;
+    }
+    
     thrd_t t;
     thrd_create(&t, increment, NULL);
     thrd_join(t, NULL);
+    
     mtx_destroy(&mtx);
     return 0;
 }

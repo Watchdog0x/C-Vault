@@ -43,7 +43,12 @@ char *strcpy(char *dest, const char *src)
 
 Copies the string pointed to by `src` (including the null terminator) to the buffer pointed to by `dest`.
 
-<details><summary>Example</summary>
+**Returns:** `dest`.
+
+> [!WARNING]
+> **UNSAFE**: This function does not check for buffer overflows. Use [strncpy](#strncpy) instead.
+
+<details><summary>Example (Unsafe)</summary>
 
 ```c
 #include <string.h>
@@ -51,9 +56,12 @@ Copies the string pointed to by `src` (including the null terminator) to the buf
 
 int main(void) {
     char src[] = "Hello";
-    char dest[10];
+    char dest[10]; 
+    
+    // Potentially unsafe if src > dest
     strcpy(dest, src);
-    printf("dest: %s\n", dest); // Output: dest: Hello
+    
+    printf("dest: %s\n", dest);
     return 0;
 }
 ```
@@ -68,6 +76,8 @@ char *strncpy(char *dest, const char *src, size_t n)
 
 Copies at most `n` characters from `src` to `dest`. If `src` is shorter than `n`, the remainder is padded with null bytes.
 
+**Returns:** `dest`.
+
 <details><summary>Example</summary>
 
 ```c
@@ -77,9 +87,14 @@ Copies at most `n` characters from `src` to `dest`. If `src` is shorter than `n`
 int main(void) {
     char src[] = "Hello World";
     char dest[6];
-    strncpy(dest, src, 5);
-    dest[5] = '\0'; // Ensure null termination
-    printf("dest: %s\n", dest); // Output: dest: Hello
+    
+    // Safe copy: limits copy to 5 chars (leaving 1 for null)
+    strncpy(dest, src, sizeof(dest) - 1);
+    
+    // Manually ensure null termination (strncpy might not)
+    dest[sizeof(dest) - 1] = '\0';
+    
+    printf("dest: %s\n", dest); // Output: Hello
     return 0;
 }
 ```
@@ -151,7 +166,12 @@ char *strcat(char *dest, const char *src)
 
 Appends the string `src` to the end of `dest`. The destination buffer must be large enough to hold the result.
 
-<details><summary>Example</summary>
+**Returns:** `dest`.
+
+> [!WARNING]
+> **UNSAFE**: This function does not check for buffer overflows. Use [strncat](#strncat) or [snprintf](../std/io.md#snprintf) instead.
+
+<details><summary>Example (Unsafe)</summary>
 
 ```c
 #include <string.h>
@@ -160,8 +180,11 @@ Appends the string `src` to the end of `dest`. The destination buffer must be la
 int main(void) {
     char dest[20] = "Hello ";
     char src[] = "World";
+    
+    // Ensure dest has enough space before concatenating!
     strcat(dest, src);
-    printf("%s\n", dest); // Output: Hello World
+    
+    printf("%s\n", dest);
     return 0;
 }
 ```
@@ -298,6 +321,8 @@ char *strchr(const char *s, int c)
 
 Returns a pointer to the first occurrence of character `c` in string `s`, or `NULL` if not found.
 
+**Returns:** Pointer to the found character, or `NULL`.
+
 <details><summary>Example</summary>
 
 ```c
@@ -308,9 +333,11 @@ int main(void) {
     const char *str = "Hello World";
     char *ptr = strchr(str, 'o');
     
+    // Always check for NULL before using the pointer
     if (ptr != NULL) {
-        printf("Found 'o' at position: %ld\n", ptr - str); // Output: 4
-        printf("Substring from 'o': %s\n", ptr); // Output: o World
+        printf("Found 'o' at index: %ld\n", ptr - str);
+    } else {
+        printf("Character not found\n");
     }
     return 0;
 }

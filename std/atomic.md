@@ -84,16 +84,27 @@ Atomically returns the value of `object`.
 C atomic_fetch_add(volatile A *object, M operand)
 ```
 
+Atomically adds `operand` to `object`.
+
+**Returns:** The value held in `object` immediately *before* the addition.
+
 <details><summary>Example</summary>
 
 ```c
 #include <stdatomic.h>
 #include <stdio.h>
+#include <pthread.h> // Assuming a threading environment
+
+atomic_int counter = ATOMIC_VAR_INIT(0);
 
 int main(void) {
-    atomic_int counter = 0;
-    atomic_fetch_add(&counter, 1);
-    printf("Counter: %d\n", atomic_load(&counter));
+    // 1. Fetch current value and add 1
+    int prev = atomic_fetch_add(&counter, 1);
+    
+    // 2. Load the new value
+    int now = atomic_load(&counter);
+    
+    printf("Value was %d, is now %d\n", prev, now);
     return 0;
 }
 ```
@@ -153,7 +164,34 @@ int main(void) {
 _Bool atomic_compare_exchange_strong(volatile A *object, C *expected, M desired)
 ```
 
-Atomically compares `object` with `*expected`, and if equal, replaces with `desired`. Returns true if successful.
+Atomically compares `object` with `*expected`. If equal, replaces `object` with `desired` (read-modify-write). If not equal, updates `*expected` with the current value of `object`.
+
+**Returns:** `true` if the swap occurred, `false` otherwise.
+
+<details><summary>Example</summary>
+
+```c
+#include <stdatomic.h>
+#include <stdbool.h>
+#include <stdio.h>
+
+int main(void) {
+    atomic_int val = ATOMIC_VAR_INIT(10);
+    int expected = 10;
+    int desired = 20;
+    
+    // CAS Loop pattern
+    if (atomic_compare_exchange_strong(&val, &expected, desired)) {
+        printf("Success: Swapped 10 for 20\n");
+    } else {
+        printf("Fail: Value was %d, expected 10\n", expected);
+    }
+    
+    return 0;
+}
+```
+
+</details>
 
 ---
 

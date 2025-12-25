@@ -42,28 +42,40 @@ void longjmp(jmp_buf env, int val)
 
 Restores the environment saved in `env` by the most recent call to `setjmp`. The program execution resumes at the `setjmp` call point as if it had returned `val`.
 
+**Returns:** Does not return (jumps back).
+
+> [!WARNING]
+> **Safety Note**: Variables local to the function containing `setjmp` that are modified after `setjmp` but before `longjmp` may have indeterminate values unless declared `volatile`.
+
 <details><summary>Example</summary>
 
 ```c
 #include <setjmp.h>
 #include <stdio.h>
+#include <stdlib.h>
 
-jmp_buf buffer;
+jmp_buf env;
 
-void error_recovery(void) {
-    printf("Error occurred! Jumping back...\n");
-    longjmp(buffer, 1);
+void risky_operation(void) {
+    printf("Operation failed... aborting.\n");
+    longjmp(env, 1); // Jump back with code 1
 }
 
 int main(void) {
-    if (setjmp(buffer) == 0) {
-        printf("Initial state saved.\n");
-        // error_recovery();
+    // 'volatile' is critical here to preserve value across longjmp
+    volatile int count = 0; 
+    
+    // Save state. Returns 0 on direct call, non-zero on longjmp return
+    if (setjmp(env) == 0) {
+        printf("State saved. Doing work...\n");
+        count++; // Modified between setjmp and longjmp
+        risky_operation();
     } else {
-        printf("Recovered in main.\n");
+        printf("Recovered! Count is: %d\n", count); // count should be 1
     }
     return 0;
 }
 ```
+
 </details>
 

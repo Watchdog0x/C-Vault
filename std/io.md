@@ -11,7 +11,7 @@ The `stdio.h` header defines types and macros for handling input and output, and
 | Facility Category | Key Symbols | Description |
 |-------------------|-------------|-------------|
 | [File Access](#file-access) | [fopen](#fopen), [fclose](#fclose), [fflush](#fflush) | Lifecycle management of streams and buffers. |
-| [Formatted Output](#formatted-output) | [printf](#printf), [fprintf](#fprintf), [snprintf](#snprintf) | Converting internal binary types to text. |
+| [Formatted Output](#formatted-output) | [sprintf](#sprintf), [printf](#printf), [fprintf](#fprintf), [snprintf](#snprintf) | Converting internal binary types to text. |
 | [Formatted Input](#formatted-input) | [scanf](#scanf), [sscanf](#sscanf) | Parsing text streams. |
 | [Character I/O](#character-io) | [fgetc](#fgetc), [fgets](#fgets), [fputc](#fputc), [fputs](#fputs) | Reading and writing characters or strings. |
 | [Direct/Block I/O](#direct--block-io) | [fread](#fread), [fwrite](#fwrite) | Transferring raw binary data blocks. |
@@ -44,21 +44,60 @@ Format specifiers are used in functions like `printf` and `scanf` to tell the co
 ## Types & Variables
 
 ### FILE
-Opaque type representing a stream. Used with all file I/O functions to track the current state of a file.
+
+```c
+typedef struct _IO_FILE FILE;
+```
+
+Opaque type representing a stream. Used with all file I/O functions to track the current state of a file. You cannot access members of this struct directly; you must use the provided functions (e.g., `feof`, `ferror`).
 
 ### size_t
+
+```c
+typedef unsigned long size_t;
+```
+
 Unsigned integer type used for representing sizes of objects and return values for block I/O.
 
 ### Standard Streams
-* **`stdin`**: Standard input stream (usually the keyboard).
-* **`stdout`**: Standard output stream (usually the terminal console).
-* **`stderr`**: Standard error stream used for diagnostic messages.
+
+* **`stdin`** (`FILE *`): Standard input stream (usually the keyboard).
+* **`stdout`** (`FILE *`): Standard output stream (usually the terminal console).
+* **`stderr`** (`FILE *`): Standard error stream used for diagnostic messages (unbuffered).
 
 ---
 
 ## Functions
 
 ### Formatted Output
+
+### sprintf
+
+```c
+int sprintf(char *str, const char *format, ...)
+```
+
+Writes formatted output to the string `str`.
+
+**Returns:** The number of characters written (excluding the null byte).
+
+> [!WARNING]
+> **UNSAFE**: `sprintf` does not check for buffer overflows. Use [snprintf](#snprintf) instead.
+
+<details><summary>Example (Unsafe)</summary>
+
+```c
+#include <stdio.h>
+
+int main(void) {
+    char buf[10];
+    // UNSAFE: Overflow if formatted string > 9 chars
+    sprintf(buf, "Value: %d", 123456789);
+    return 0;
+}
+```
+
+</details>
 
 ### printf
 ```c
@@ -67,15 +106,22 @@ int printf(const char *format, ...)
 
 Writes formatted output to the standard output stream (`stdout`).
 
+**Returns:** The number of characters printed (excluding the null byte), or a negative value if an output error occurs.
+
 <details><summary>Example</summary>
 
 ```c
 #include <stdio.h>
 
 int main(void) {
-    const char *name = "Kim";
-    int age = 22;
-    printf("%s is %d years old.\n", name, age);
+    const char *user = "Admin";
+    int id = 101;
+    
+    // Check return value to ensure output was successful
+    if (printf("User: %s (ID: %d)\n", user, id) < 0) {
+        perror("Failed to write to stdout");
+        return 1;
+    }
     return 0;
 }
 ```
@@ -90,17 +136,28 @@ int fprintf(FILE *stream, const char *format, ...)
 
 Writes formatted output to the specified `stream`. Common for writing to files or `stderr`.
 
+**Returns:** The number of characters written, or a negative value if an error occurs.
+
 <details><summary>Example</summary>
 
 ```c
 #include <stdio.h>
 
 int main(void) {
-    FILE *fp = fopen("output.txt", "w");
-    if (fp) {
-        fprintf(fp, "Name: %s, Age: %d\n", "Alice", 30);
-        fclose(fp);
+    FILE *fp = fopen("log.txt", "a");
+    if (fp == NULL) {
+        perror("Failed to open log file");
+        return 1;
     }
+
+    // Write to file and check for success
+    if (fprintf(fp, "Log entry: %s\n", "System started") < 0) {
+        perror("Failed to write to file");
+        fclose(fp);
+        return 1;
+    }
+
+    fclose(fp);
     return 0;
 }
 ```
@@ -113,15 +170,30 @@ int main(void) {
 int snprintf(char *str, size_t size, const char *format, ...)
 ```
 
-Writes formatted output to a character buffer `str` with a maximum `size`. This is the safe alternative to `sprintf`.
+**Returns:** The number of characters that *would* have been written (excluding null terminator) if the buffer were large enough. If return value >= `size`, the output was truncated.
 
 <details><summary>Example</summary>
 
 ```c
-char buffer[50];
-int score = 95;
-snprintf(buffer, sizeof(buffer), "Score: %d", score);
+#include <stdio.h>
 
+int main(void) {
+    char buf[16]; // Small buffer
+    int val = 123456789;
+    
+    // Safe formatting: ensures no buffer overflow
+    int needed = snprintf(buf, sizeof(buf), "Value: %d", val);
+    
+    if (needed >= sizeof(buf)) {
+        // Handle truncation
+        fprintf(stderr, "Warning: String truncated! Needed %d bytes.\n", needed);
+    } else if (needed < 0) {
+        perror("Encoding error");
+    } else {
+        printf("Buffer content: %s\n", buf);
+    }
+    return 0;
+}
 ```
 
 </details>
@@ -138,12 +210,30 @@ int scanf(const char *format, ...)
 
 Reads formatted input from `stdin`.
 
+**Returns:** The number of input items successfully matched and assigned. Returns `EOF` if read failure occurs before any conversion.
+
+> [!WARNING]
+> **UNSAFE**: Using `%s` without a width specifier (e.g. `%s` instead of `%99s`) allows buffer overflows.
+
 <details><summary>Example</summary>
 
 ```c
-int val;
-printf("Enter a number: ");
-scanf("%d", &val); // Note the use of & (address-of) operator
+#include <stdio.h>
+
+int main(void) {
+    int id;
+    float value;
+
+    printf("Enter ID and Value: ");
+    // Validate that specifically 2 items were parsed
+    if (scanf("%d %f", &id, &value) != 2) {
+        fprintf(stderr, "Invalid input format.\n");
+        return 1;
+    }
+
+    printf("Accepted: ID=%d, Val=%.2f\n", id, value);
+    return 0;
+}
 ```
 
 </details>
@@ -185,19 +275,34 @@ FILE *fopen(const char *filename, const char *mode)
 
 Opens the file and associates a stream with it.
 
-* `"r"`: Read
-* `"w"`: Write (overwrites file)
-* `"a"`: Append (adds to end of file)
+* `"r"`: Read (file must exist).
+* `"w"`: Write (creates file, or truncates existing).
+* `"a"`: Append (creates file, or writes to end).
+* `"r+"`: Read and Write (file must exist).
+
+**Returns:** A pointer to the `FILE` object, or `NULL` if the file could not be opened (checks `errno`).
 
 <details><summary>Example</summary>
 
 ```c
-FILE *fp = fopen("test.txt", "w");
-if (fp != NULL) {
-    fputs("Hello C", fp);
-    fclose(fp);
-}
+#include <stdio.h>
+#include <errno.h>
 
+int main(void) {
+    // "r" mode: Fails if file doesn't exist
+    FILE *fp = fopen("config.txt", "r");
+    
+    if (fp == NULL) {
+        // ALWAYS check for NULL
+        perror("Failed to open config.txt");
+        return 1;
+    }
+    
+    // File operations here...
+    
+    fclose(fp);
+    return 0;
+}
 ```
 
 </details>
@@ -246,7 +351,37 @@ Writes a single character to a stream.
 char *fgets(char *s, int n, FILE *stream)
 ```
 
-Reads a line/string from a stream safely (limits length).
+Reads a string from a stream into `s`. Reads at most `n-1` characters. Stops at newline (which is retained) or EOF. Always null-terminates.
+
+**Returns:** `s` on success, or `NULL` on error or if end-of-file occurs while no characters have been read.
+
+> [!WARNING]
+> **UNSAFE**: `gets` is removed from C11 because it causes buffer overflows. Use `fgets` instead.
+
+<details><summary>Example</summary>
+
+```c
+#include <stdio.h>
+
+int main(void) {
+    char buf[256];
+    printf("Enter text: ");
+    
+    // fgets is safer than gets() because it enforces buffer limit
+    if (fgets(buf, sizeof(buf), stdin) != NULL) {
+        printf("You typed: %s", buf);
+    } else {
+        if (feof(stdin)) {
+            printf("\nEnd of input reached.\n");
+        } else {
+            perror("Error reading input");
+        }
+    }
+    return 0;
+}
+```
+
+</details>
 
 ### fputs
 
@@ -254,18 +389,9 @@ Reads a line/string from a stream safely (limits length).
 int fputs(const char *s, FILE *stream)
 ```
 
-Writes a string to a stream.
+Writes a string to a stream (does not write the null terminator).
 
-<details><summary>Example</summary>
-
-```c
-char buffer[100];
-printf("Enter a line: ");
-fgets(buffer, 100, stdin);
-fputs(buffer, stdout);
-```
-
-</details>
+**Returns:** Non-negative value on success, `EOF` on error.
 
 ---
 
@@ -279,16 +405,26 @@ size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream)
 
 Reads binary data from a stream.
 
+**Returns:** The number of elements successfully read (not bytes). If this is less than `nmemb`, either EOF was reached or a read error occurred.
+
 <details><summary>Example</summary>
 
 ```c
 #include <stdio.h>
 
 int main(void) {
-    // Reading
-    int read_arr[5];
+    struct Point { int x, y; } pts[5];
+    
     FILE *fp = fopen("data.bin", "rb");
-    fread(read_arr, sizeof(int), 5, fp);
+    if (!fp) return 1;
+
+    // Check strict element count
+    size_t got = fread(pts, sizeof(struct Point), 5, fp);
+    if (got != 5) {
+        if (feof(fp)) printf("Unexpected EOF after %lu records.\n", got);
+        if (ferror(fp)) perror("Read error");
+    }
+
     fclose(fp);
     return 0;
 }

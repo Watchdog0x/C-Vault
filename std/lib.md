@@ -110,16 +110,27 @@ void *malloc(size_t size)
 
 Allocates `size` bytes of uninitialized storage.
 
+**Returns:** A pointer to the allocated memory, or `NULL` if the request fails.
+
 <details><summary>Example</summary>
 
 ```c
 #include <stdlib.h>
+#include <stdio.h>
 
 int main(void) {
+    // Always check potential allocation failure
     int *ptr = malloc(10 * sizeof(int));
-    if (ptr) {
-        free(ptr);
+    
+    if (ptr == NULL) {
+        perror("Memory allocation failed");
+        return 1;
     }
+    
+    // Use memory...
+    ptr[0] = 42;
+    
+    free(ptr);
     return 0;
 }
 ```
@@ -367,6 +378,9 @@ int atoi(const char *nptr)
 
 Converts the initial portion of the string `nptr` to an `int`. Ignores leading whitespace, stops at first non-digit.
 
+> [!WARNING]
+> **UNSAFE**: No error detection for overflow or invalid input. Use [strtol](#strtol) instead.
+
 <details><summary>Example</summary>
 
 ```c
@@ -391,6 +405,11 @@ long atol(const char *nptr)
 
 Converts the initial portion of the string `nptr` to a `long`.
 
+**Returns:** The converted value. Returns `0` on error (ambiguous).
+
+> [!WARNING]
+> **UNSAFE**: No error detection for overflow or invalid input. Use [strtol](#strtol) instead.
+
 <details><summary>Example</summary>
 
 ```c
@@ -400,7 +419,7 @@ Converts the initial portion of the string `nptr` to a `long`.
 int main(void) {
     const char *str = "123456789";
     long num = atol(str);
-    printf("%ld\n", num); // Output: 123456789
+    printf("%ld\n", num);
     return 0;
 }
 ```
@@ -414,6 +433,9 @@ double atof(const char *nptr)
 ```
 
 Converts the initial portion of the string `nptr` to a `double`.
+
+> [!WARNING]
+> **UNSAFE**: No error detection for overflow or invalid input. Use [strtod](#strtod) instead.
 
 <details><summary>Example</summary>
 
@@ -439,17 +461,39 @@ long strtol(const char *nptr, char **endptr, int base)
 
 Converts the initial portion of `nptr` to a `long` in the given `base` (2-36). Sets `endptr` to point after the converted part.
 
+**Returns:** The converted value. If out of range, returns `LONG_MAX` or `LONG_MIN` and sets `errno` to `ERANGE`. If no conversion, returns `0` and sets `endptr` to `str`.
+
 <details><summary>Example</summary>
 
 ```c
 #include <stdlib.h>
 #include <stdio.h>
+#include <errno.h>
+#include <limits.h>
 
 int main(void) {
-    const char *str = "123abc";
+    const char *str = "21474836480 this_is_ignored"; // Larger than 32-bit int
     char *end;
-    long num = strtol(str, &end, 10);
-    printf("Number: %ld, Remaining: %s\n", num, end); // Number: 123, Remaining: abc
+    
+    // 1. Reset errno before call
+    errno = 0;
+    
+    // 2. Perform conversion
+    long val = strtol(str, &end, 10);
+    
+    // 3. Check for range errors
+    if ((val == LONG_MAX || val == LONG_MIN) && errno == ERANGE) {
+        perror("Overflow occurred");
+    } 
+    // 4. Check for no conversion
+    else if (end == str) {
+        fprintf(stderr, "No digits were found\n");
+    } 
+    // 5. Success
+    else {
+        printf("Converted: %ld\n", val);
+        printf("Remaining: %s\n", end);
+    }
     return 0;
 }
 ```
@@ -591,6 +635,8 @@ void srand(unsigned int seed)
 
 Seeds the pseudo-random number generator used by `rand()`.
 
+**Returns:** `void`.
+
 <details><summary>Example</summary>
 
 ```c
@@ -599,9 +645,15 @@ Seeds the pseudo-random number generator used by `rand()`.
 #include <time.h>
 
 int main(void) {
-    srand(time(NULL)); // Seed with current time
-    int random_num = rand();
-    printf("Seeded random number: %d\n", random_num);
+    // Seed once at program start
+    if (time(NULL) == (time_t)-1) {
+        // Fallback or error handling if time fails
+        srand(42);
+    } else {
+        srand((unsigned int)time(NULL));
+    }
+    
+    printf("Seeded random: %d\n", rand());
     return 0;
 }
 ```
@@ -823,6 +875,9 @@ int system(const char *command)
 ```
 
 Executes a command in the host environment.
+
+> [!WARNING]
+> **UNSAFE**: Vulnerable to shell injection attacks if input is not sanitized. Use `exec` family functions if possible.
 
 <details><summary>Example</summary>
 

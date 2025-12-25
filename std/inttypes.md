@@ -131,6 +131,33 @@ intmax_t strtoimax(const char *nptr, char **endptr, int base)
 
 Equivalent to `strtol`, but returns `intmax_t`.
 
+**Returns:** The converted value. If out of range, returns `INTMAX_MAX` or `INTMAX_MIN` and sets `errno` to `ERANGE`. If no conversion, returns `0`.
+
+<details><summary>Example</summary>
+
+```c
+#include <inttypes.h>
+#include <stdio.h>
+#include <errno.h>
+
+int main(void) {
+    const char *str = "9223372036854775807";
+    char *end;
+    errno = 0;
+    
+    intmax_t val = strtoimax(str, &end, 10);
+    
+    if (errno == ERANGE) {
+        perror("Overflow");
+    } else {
+        printf("Converted: %" PRIdMAX "\n", val);
+    }
+    return 0;
+}
+```
+
+</details>
+
 ### strtoumax
 
 ```c
@@ -138,3 +165,5 @@ uintmax_t strtoumax(const char *nptr, char **endptr, int base)
 ```
 
 Equivalent to `strtoul`, but returns `uintmax_t`.
+
+**Returns:** The converted value. If out of range, returns `UINTMAX_MAX` and sets `errno` to `ERANGE`. If no conversion, returns `0`.

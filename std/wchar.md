@@ -49,16 +49,24 @@ wchar_t *wcscpy(wchar_t *dest, const wchar_t *src)
 ```
 
 Copies the wide string `src` to `dest`.
+**Returns:** `dest`.
 
-<details><summary>Example</summary>
+> [!WARNING]
+> **UNSAFE**: No bounds checking. Use `wcsncpy` or similar safer alternatives.
+
+<details><summary>Example (Unsafe)</summary>
 
 ```c
 #include <wchar.h>
+#include <stdio.h>
 
 int main(void) {
     wchar_t dest[20];
+    
+    // Potentially unsafe
     wcscpy(dest, L"Hello");
-    wprintf(L"%ls\n", dest); // Hello
+    
+    wprintf(L"%ls\n", dest);
     return 0;
 }
 ```
@@ -165,13 +173,19 @@ int wprintf(const wchar_t *format, ...)
 
 The wide-character equivalent of `printf`.
 
+**Returns:** The number of wide characters printed, or a negative value on error.
+
 <details><summary>Example</summary>
 
 ```c
 #include <wchar.h>
+#include <stdio.h>
 
 int main(void) {
-    wprintf(L"Wide output: %ls\n", L"Hello");
+    if (wprintf(L"Wide output: %ls\n", L"Hello") < 0) {
+        perror("wprintf failed");
+        return 1;
+    }
     return 0;
 }
 ```
@@ -204,14 +218,24 @@ size_t wcstombs(char *restrict s, const wchar_t *restrict pwcs, size_t n)
 
 Converts a wide string to a multibyte string.
 
+**Returns:** The number of bytes modified (excluding null), or `(size_t)-1` on encoding error.
+
 <details><summary>Example</summary>
 
 ```c
 #include <wchar.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 int main(void) {
     char mbs[20];
-    size_t len = wcstombs(mbs, L"Hello", 20);
+    size_t len = wcstombs(mbs, L"Hello", sizeof(mbs));
+    
+    if (len == (size_t)-1) {
+        perror("Conversion failed");
+        return 1;
+    }
+    
     printf("Converted: %s, Length: %zu\n", mbs, len);
     return 0;
 }

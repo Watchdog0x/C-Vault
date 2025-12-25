@@ -58,12 +58,15 @@ void (*signal(int sig, void (*func)(int)))(int)
 
 Sets a handler for signal `sig`. The `func` can be a pointer to a function, or one of the macros `SIG_DFL` (default action) or `SIG_IGN` (ignore signal).
 
+**Returns:** The previous value of the signal handler, or `SIG_ERR` on error (sets `errno`).
+
 <details><summary>Example</summary>
 
 ```c
 #include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <errno.h>
 
 void handler(int sig) {
     printf("Caught signal %d\n", sig);
@@ -71,9 +74,19 @@ void handler(int sig) {
 }
 
 int main(void) {
-    signal(SIGINT, handler); // Register handler for SIGINT
-    signal(SIGTERM, SIG_IGN); // Ignore SIGTERM
-    while(1); // Wait for signals
+    // Always check if signal registration failed
+    if (signal(SIGINT, handler) == SIG_ERR) {
+        perror("Failed to register SIGINT handler");
+        return 1;
+    }
+    
+    if (signal(SIGTERM, SIG_IGN) == SIG_ERR) {
+        perror("Failed to ignore SIGTERM");
+        return 1;
+    }
+    
+    printf("Waiting for signals...\n");
+    while(1); 
     return 0;
 }
 ```
@@ -86,7 +99,9 @@ int main(void) {
 int raise(int sig)
 ```
 
-Sends the signal `sig` to the executing program. Returns 0 if successful.
+Sends the signal `sig` to the executing program.
+
+**Returns:** `0` if successful, non-zero if unsuccessful.
 
 <details><summary>Example</summary>
 
@@ -99,8 +114,16 @@ void handler(int sig) {
 }
 
 int main(void) {
-    signal(SIGUSR1, handler);
-    raise(SIGUSR1); // Send signal to self
+    if (signal(SIGUSR1, handler) == SIG_ERR) {
+        perror("signal");
+        return 1;
+    }
+
+    if (raise(SIGUSR1) != 0) {
+        fprintf(stderr, "Failed to raise signal\n");
+        return 1;
+    }
+    
     return 0;
 }
 ```

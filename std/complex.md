@@ -42,6 +42,8 @@ double creal(double complex z)
 
 Extracts the real component.
 
+**Returns:** The real part of `z` as a `double`.
+
 ### cimag
 
 ```c
@@ -49,6 +51,8 @@ double cimag(double complex z)
 ```
 
 Extracts the imaginary component.
+
+**Returns:** The imaginary part of `z` as a `double`.
 
 <details><summary>Example</summary>
 
@@ -139,16 +143,22 @@ int main(void) {
 double complex cexp(double complex z)
 ```
 
-Computes the complex exponential of `z`.
+Computes the complex exponential of `z` ($e^z$).
+
+**Returns:** The complex exponential value.
 
 <details><summary>Example</summary>
 
 ```c
 #include <complex.h>
+#include <stdio.h>
 
 int main(void) {
-    double complex z = 1.0 + 0.0 * I;
-    double complex e = cexp(z); // ≈ 2.718 + 0i
+    double complex z = 1.0 + 1.0 * I;
+    double complex res = cexp(z);
+    
+    // Euler's formula: e^(x+iy) = e^x * (cos(y) + i*sin(y))
+    printf("e^(1+i) = %.2f + %.2fi\n", creal(res), cimag(res));
     return 0;
 }
 ```

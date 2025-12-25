@@ -64,6 +64,9 @@ A comprehensive, professional-grade documentation library covering the ISO C Sta
 | [mman](sys/mman.md) | sys/mman.h | Memory mapping and protection. |
 | [wait](sys/wait.md) | sys/wait.h | Process synchronization. |
 | [poll](sys/poll.md) | poll.h | I/O multiplexing. |
+| [syscall](sys/syscall.md) | sys/syscall.h | System call numbers and invocation. |
+| [types](sys/types.md) | sys/types.h | System data types (`pid_t`, `size_t`). |
+| [time](sys/time.md) | sys/time.h | Time structures (`timeval`) and precision timing. |
 | [utsname](sys/utsname.md) | sys/utsname.h | Kernel and version information. |
 
 ---
@@ -76,10 +79,16 @@ A comprehensive, professional-grade documentation library covering the ISO C Sta
 | [client](wayland/client.md) | wayland-client.h | Wayland application API. |
 | [server](wayland/server.md) | wayland-server.h | Wayland compositor API. |
 | [util](wayland/util.md) | wayland-util.h | Wayland shared utilities. |
+| [egl](wayland/egl.md) | wayland-egl.h | Wayland EGL integration. |
+| [cursor](wayland/cursor.md) | wayland-cursor.h | Wayland cursor management. |
 | [core](drm/core.md) | xf86drm.h | DRM device access. |
 | [mode](drm/mode.md) | xf86drmMode.h | DRM mode-setting. |
+| [fourcc](drm/fourcc.md) | drm/drm_fourcc.h | DRM pixel formats. |
 | [gl](gl/gl.md) | GL/gl.h | OpenGL GPU rendering pipeline. |
 | [sdl](sdl/sdl.md) | SDL2/SDL.h | Multimedia, audio, and events. |
+| [sdl-audio](sdl/audio.md) | SDL2/SDL_audio.h | Audio device management. |
+| [sdl-thread](sdl/thread.md) | SDL2/SDL_thread.h | Cross-platform threading. |
+| [sdl-time](sdl/time.md) | SDL2/SDL_timer.h | High-performance timers. |
 
 ---
 
@@ -96,6 +105,31 @@ A comprehensive, professional-grade documentation library covering the ISO C Sta
 | [zlib](zlib/zlib.md) | zlib.h | DEFLATE compression. |
 | [png](image/png.md) | png.h | PNG image handling. |
 | [jpeg](image/jpeg.md) | jpeglib.h | JPEG image handling. |
+
+---
+
+## 🛡️ Building for Safety
+
+To ensure robust and secure applications, it is recommended to compile with strict warning flags and safety standards.
+
+### Recommended Flags (GCC / Clang)
+
+```bash
+gcc -std=c11 -Wall -Wextra -Werror -pedantic \
+    -D_FORTIFY_SOURCE=2 -O2 \
+    -fsanitize=address,undefined \
+    -fstack-protector-strong \
+    -o app main.c
+```
+
+| Flag | Description |
+|:---|:---|
+| `-Wall -Wextra` | Enables a broad set of warning messages. |
+| `-Werror` | Treats all warnings as errors, preventing compilation of unsafe code. |
+| `-pedantic` | Enforces strict ISO C compliance. |
+| `-D_FORTIFY_SOURCE=2` | Detects buffer overflows at runtime (requires `-O2`). |
+| `-fsanitize=address` | Detects memory errors (buffer overflow, use-after-free). |
+| `-fstack-protector-strong` | Adds stack canaries to prevent stack smashing attacks. |
 
 ---
 

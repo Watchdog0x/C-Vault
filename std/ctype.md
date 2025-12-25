@@ -400,9 +400,24 @@ int main(void) {
 
 ## Technical Details
 
-All functions in `ctype.h` return a non-zero value (true) if the character meets the condition, and zero (false) otherwise. The behavior of these functions is affected by the current **locale** setting.
+## Technical Details
+
+All functions in `ctype.h` return a non-zero value (true) if the character meets the condition, and zero (false) otherwise.
+
+**Returns:** `int` (non-zero for true, 0 for false).
+
+> [!IMPORTANT]
+> **Safe Usage**: The argument `c` must be representable as an `unsigned char` or be equal to `EOF`. Passing a negative `char` (like a signed char from a string) results in **undefined behavior**. Always cast to `(unsigned char)`.
+
+```c
+// Safe pattern
+char c = str[i];
+if (isalpha((unsigned char)c)) { ... }
+```
+
+---
 
 **Important Notes:**
-- The argument to these functions should be representable as `unsigned char` or be equal to `EOF`.
+- The behavior of these functions is affected by the current **locale** setting.
 - These functions are often implemented as macros for performance.
 - Transformation functions (`tolower`, `toupper`) return the modified character as an `int`.
